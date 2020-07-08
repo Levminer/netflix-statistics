@@ -29,7 +29,20 @@ let pls = () => {
 	console.log(`CHART NAMES: ${chart_data_1}`)
 	console.log(`CHART VALUES: ${chart_data_2}`)
 
-	//? RANDOM CHART COLOR
+	//? make the statistics
+
+	let titles = chart_data_1.length
+
+	let watchtime_minute = Math.floor(data3.length * 50)
+	let watchtime_hour = Math.floor(watchtime_minute / 60)
+	let watchtime_day = Math.floor(watchtime_hour / 24)
+
+	console.log(`Titles: ${titles}`)
+	console.log(`Watchtime_m: ${watchtime_minute}`)
+	console.log(`Watchtime_h: ${watchtime_hour}`)
+	console.log(`Watchtime_d: ${watchtime_day}`)
+
+	//? random chart color
 
 	let colors = []
 
