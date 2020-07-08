@@ -5,10 +5,7 @@ let pls = () => {
 	let counter = 0
 
 	for (let i = 0; i < data.length; i++) {
-		if (counter % 2 == 0) {
-			data2.push(data[i])
-		}
-		counter++
+		data2.push(data[i])
 	}
 
 	console.log(data2)

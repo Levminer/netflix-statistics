@@ -25,27 +25,81 @@ function loadHandler(event) {
 }
 
 function processData(csv) {
-	// DOUBLE QOUTES KISZEDÉS
-	let asd = csv.replace(/\"/g, "")
-	let asd2 = asd.replace(/\,/g, "\n")
+	// remove double qoutes
+	let pre_data1 = csv.replace(/\"/g, "")
 
-	let allTextLines = asd2.split(/\n/)
+	// new line
+	let pre_data2 = pre_data1.replace(/\,/g, "\n")
+
+	let allTextLines = pre_data2.split(/\n/)
 	while (allTextLines.length) {
 		data.push(allTextLines.shift())
 	}
 
+	// remove title and date
 	data.splice(0, 2)
 
+	console.log("BEFORE REMOVE EMPTY CHARACHTERS")
 	console.log(data)
+	console.log(data.length)
 
-	for (let i = 0; i < data.length; i++) {
-		if (data[i].startsWith(" ")) {
-			data.splice(i, 1)
-			console.log("FASZLÁMA BAZAM?FJASKFLHASHFLHASLHJFK")
-		}
-	}
+	data = data.filter(function (item) {
+		return item.indexOf("1/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("2/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("3/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("4/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("5/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("6/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("7/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("8/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("9/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("10/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("11/") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("12/") !== 0
+	})
 
 	console.log(data)
+	console.log(data.length)
+
+	data = data.filter(function (item) {
+		return item.indexOf(" ") !== 0
+	})
+
+	console.log(data)
+	console.log(data.length)
 
 	pls()
 }
