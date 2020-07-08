@@ -1,48 +1,52 @@
 let data = []
 
-function handleFiles(files) {
-	// Check for the various File API support.
+function handlefiles(files) {
 	if (window.FileReader) {
-		// FileReader are supported.
-		getAsText(files[0])
+		getastext(files[0])
 	} else {
-		alert("FileReader are not supported in this browser.")
+		alert("A böngésződ nem támogatja ezt a funkciót! Próbálj meg más böngészőt használni!")
 	}
 }
 
-function getAsText(fileToRead) {
-	var reader = new FileReader()
-	// Handle errors load
-	reader.onload = loadHandler
-	reader.onerror = errorHandler
-	// Read file into memory as UTF-8
+function getastext(fileToRead) {
+	let reader = new FileReader()
+	reader.onload = loadhandler
+	reader.onerror = errorhandler
 	reader.readAsText(fileToRead)
 }
 
-function loadHandler(event) {
-	var csv = event.target.result
-	processData(csv)
+function loadhandler(event) {
+	let csv = event.target.result
+	processdata(csv)
 }
 
-function processData(csv) {
+function errorhandler(evt) {
+	if (evt.target.error.name == "NotReadableError") {
+		alert("Nem sikerült feltölteni a fájlt! Sérült vagy rossz fájlt töltöttél fel!")
+	}
+}
+
+function processdata(csv) {
 	// remove double qoutes
 	let pre_data1 = csv.replace(/\"/g, "")
 
 	// new line
 	let pre_data2 = pre_data1.replace(/\,/g, "\n")
 
-	let allTextLines = pre_data2.split(/\n/)
-	while (allTextLines.length) {
-		data.push(allTextLines.shift())
+	// make the array
+	let pre_data3 = pre_data2.split(/\n/)
+	while (pre_data3.length) {
+		data.push(pre_data3.shift())
 	}
 
 	// remove title and date
 	data.splice(0, 2)
 
-	console.log("BEFORE REMOVE EMPTY CHARACHTERS")
-	console.log(data)
+	console.log("Before remove dates and blanks!")
 	console.log(data.length)
+	console.log(data)
 
+	//remove dates and blanks
 	data = data.filter(function (item) {
 		return item.indexOf("1/") !== 0
 	})
@@ -91,21 +95,13 @@ function processData(csv) {
 		return item.indexOf("12/") !== 0
 	})
 
-	console.log(data)
-	console.log(data.length)
-
 	data = data.filter(function (item) {
 		return item.indexOf(" ") !== 0
 	})
 
-	console.log(data)
+	console.log("After remove dates and blanks!")
 	console.log(data.length)
+	console.log(data)
 
-	pls()
-}
-
-function errorHandler(evt) {
-	if (evt.target.error.name == "NotReadableError") {
-		alert("Canno't read file !")
-	}
+	start()
 }

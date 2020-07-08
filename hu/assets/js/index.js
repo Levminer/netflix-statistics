@@ -1,49 +1,65 @@
-let pls = () => {
-	let data2 = []
-	let data3 = []
+let restart = () => {
+	//?reload the page
+	location.reload()
+}
 
-	let counter = 0
+let start = () => {
+	//?make the names and values
+	let titles = []
+	let results = {}
 
+	// make the titles
 	for (let i = 0; i < data.length; i++) {
-		data2.push(data[i])
+		let split = data[i].split(":")
+		titles.push(split[0])
 	}
 
-	console.log(data2)
-
-	for (let i = 0; i < data2.length; i++) {
-		let split = data2[i].split(":")
-		data3.push(split[0])
-	}
-
-	let result = {}
-	data3.forEach((x) => {
-		result[x] = (result[x] || 0) + 1
+	// counting titles
+	titles.forEach((x) => {
+		results[x] = (results[x] || 0) + 1
 	})
 
-	console.log(result)
-	console.log(data3)
+	//separate names and values
+	let chart_data_1 = Object.keys(results)
+	let chart_data_2 = Object.values(results)
 
-	let chart_data_1 = Object.keys(result)
-	let chart_data_2 = Object.values(result)
-
-	console.log(`CHART NAMES: ${chart_data_1}`)
-	console.log(`CHART VALUES: ${chart_data_2}`)
+	console.log("Chart names:")
+	console.log(chart_data_1)
+	console.log("Chart values:")
+	console.log(chart_data_2)
 
 	//? make the statistics
+	let title = chart_data_1.length
 
-	let titles = chart_data_1.length
-
-	let watchtime_minute = Math.floor(data3.length * 50)
+	// calculate statitics
+	let watchtime_minute = Math.floor(data.length * 50)
 	let watchtime_hour = Math.floor(watchtime_minute / 60)
 	let watchtime_day = Math.floor(watchtime_hour / 24)
 
-	console.log(`Titles: ${titles}`)
+	console.log(`Title: ${title}`)
 	console.log(`Watchtime_m: ${watchtime_minute}`)
 	console.log(`Watchtime_h: ${watchtime_hour}`)
 	console.log(`Watchtime_d: ${watchtime_day}`)
 
-	//? random chart color
+	//animated counters
+	let c1 = new CountUp("h31", 0, title)
+	let c2 = new CountUp("h32", 0, watchtime_minute)
+	let c3 = new CountUp("h33", 0, watchtime_hour)
+	let c4 = new CountUp("h34", 0, watchtime_day)
+	c1.start()
+	c2.start()
+	c3.start()
+	c4.start()
 
+	//set the elements
+	let foo = document.querySelector("#foo")
+	let two = document.querySelector(".two")
+	let but = document.querySelector("#but")
+	foo.style.bottom = "-90px"
+	two.style.display = "block"
+	but.style.display = "inline"
+
+	//? make random chart colors
 	let colors = []
 
 	let rgb_start = () => {
@@ -75,9 +91,11 @@ let pls = () => {
 	}
 
 	rgb_start()
-	console.log(colors)
-	//? CHART
 
+	console.log("Colors:")
+	console.log(colors)
+
+	//? Make the chart
 	let mychart = document.getElementById("chart").getContext("2d")
 
 	Chart.defaults.global.defaultFontColor = "white"
@@ -94,9 +112,6 @@ let pls = () => {
 					borderWidth: 3,
 				},
 			],
-		},
-		options: {
-			legend: {},
 		},
 	})
 }
