@@ -70,14 +70,7 @@
 			<button id="but" onclick="restart()">Statisztika törlése</button>
 		</div>
 
-		<footer id="foo">
-			<h2>
-				Készítette: <a target="_blank" href="https://www.levminer.com">Levminer</a> - Netflix Statistics 1.1.0 - Forráskód:
-				<a target="_blank" href="https://github.com/Levminer/netflix-statistics">GitHub</a>
-            </h2>
-            <h4>
-                Server: <%= server %> - Node: <%= node %>
-            </h4>
-		</footer>
+		<%- include("partials/footer.ejs") %>
+
 	</body>
 </html>
