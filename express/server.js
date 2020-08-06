@@ -26,20 +26,18 @@ mongoose.connect(db, (err) => {
 
 app.set("view engine", "ejs")
 app.use(express.json({ limit: "1mb" }))
+app.use(express.static(__dirname + "/views"))
 
 app.get("/", (req, res) => {
   res.render("index", {})
-  app.use(express.static(__dirname + "/views"))
 })
 
 app.get("/en", (req, res) => {
   res.render("en", {})
-  app.use(express.static(__dirname + "/views"))
 })
 
 app.get("/hu", (req, res) => {
   res.render("hu", {})
-  app.use(express.static(__dirname + "/views"))
 })
 
 app.post("/api", (req, res) => {
@@ -93,7 +91,6 @@ app.get("/ins", (req, res) => {
 
 app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
-  app.use(express.static(__dirname + "/views"))
 })
 
 app.listen(port)
