@@ -3,10 +3,11 @@ let restart = () => {
 	location.reload()
 }
 
+let titles = []
+let results = {}
+
 let start = () => {
 	//?make the names and values
-	let titles = []
-	let results = {}
 
 	// make the titles
 	for (let i = 0; i < data.length; i++) {
@@ -46,6 +47,7 @@ let start = () => {
 	let c2 = new CountUp("h32", 0, watchtime_minute)
 	let c3 = new CountUp("h33", 0, watchtime_hour)
 	let c4 = new CountUp("h34", 0, watchtime_day)
+
 	c1.start()
 	c2.start()
 	c3.start()
@@ -54,10 +56,12 @@ let start = () => {
 	//set the elements
 	let foo = document.querySelector("#foo")
 	let two = document.querySelector(".two")
-	let but = document.querySelector("#but")
+	let but1 = document.querySelector("#b1")
+	let but2 = document.querySelector("#b2")
 	foo.style.bottom = "-90px"
 	two.style.display = "block"
-	but.style.display = "inline"
+	but1.style.display = "inline"
+	but2.style.display = "inline"
 
 	//? make random chart colors
 	let colors = []

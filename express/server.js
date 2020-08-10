@@ -1,6 +1,11 @@
 const express = require("express")
 const mongoose = require("mongoose")
-const Model = require("./Model")
+const passport = require("passport")
+const flash = require("connect-flash")
+const session = require("express-session")
+
+const Model = require("./models/User")
+const { ensureAuthenticated, forwardAuthenticated } = require("./config/auth")
 
 const app = express()
 const port = 8080
@@ -13,84 +18,105 @@ app.locals.server = server
 app.locals.node = node
 app.locals.version = version
 
-//statistics
-let stat
+// Passport Config
+require("./config/passport")(passport)
 
-// DB
-const db =
-  "mongodb+srv://ser:1234@mnr-fyqdo.mongodb.net/test?retryWrites=true&w=majority"
-mongoose.connect(db, (err) => {
-  if (err) return console.log("ERROR")
-  console.log("MDB connected!")
+// DB Config
+const db = require("./config/keys").mongoURI
+
+// Connect to MongoDB
+mongoose
+	.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+	.then(() => console.log("MongoDB Connected"))
+	.catch((err) => console.log(err))
+
+// EJS
+app.set("view engine", "ejs")
+
+// Express body parser
+app.use(express.urlencoded({ extended: true }))
+
+// Express session
+app.use(
+	session({
+		secret: "secret",
+		resave: true,
+		saveUninitialized: true,
+	})
+)
+
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Connect flash
+app.use(flash())
+
+// Global variables
+app.use(function (req, res, next) {
+	res.locals.success_msg = req.flash("success_msg")
+	res.locals.error_msg = req.flash("error_msg")
+	res.locals.error = req.flash("error")
+	next()
 })
 
-app.set("view engine", "ejs")
+// Routes
+app.use("/", require("./routes/index.js"))
+app.use("/account", require("./routes/account.js"))
+
 app.use(express.json({ limit: "1mb" }))
 app.use(express.static(__dirname + "/views"))
 
 app.get("/", (req, res) => {
-  res.render("index", {})
+	res.render("index", {})
 })
 
-app.get("/en", (req, res) => {
-  res.render("en", {})
+app.get("/en", (req, res, next) => {
+	res.render("en", {
+		user: req.user,
+	})
 })
 
 app.get("/hu", (req, res) => {
-  res.render("hu", {})
+	res.render("hu", {
+		user: req.user,
+	})
 })
 
-app.post("/api", (req, res) => {
-  console.log("Data coming:")
-  stat = req.body
+app.post("/api", ensureAuthenticated, (req, res) => {
+	let body = req.body
+	let id = body.id
+	let statistics = body.results
 
-  Model.findOneAndUpdate(
-    { _id: "5f296c398ba8042f10da6238" },
-    { $push: { saved_statistics: stat } },
-    function (error, success) {
-      if (error) {
-        console.log(error)
-      } else {
-        console.log(success)
-      }
-    }
-  )
+	Model.findOneAndUpdate({ _id: id }, { $push: { saved_statistics: statistics } }, function (error, success) {
+		if (error) {
+			console.log(error)
+		} else {
+			console.log(success)
+		}
+	})
 
-  res.end()
-})
-
-app.get("/api", (req, res) => {
-  console.log("Seraching data...")
-
-  Model.find({}).exec((err, users) => {
-    if (err) {
-      console.log("Searh error")
-    } else {
-      res.json(users)
-      console.log(users)
-    }
-  })
+	res.end()
 })
 
 app.get("/ins", (req, res) => {
-  var objFriends = "ASDASDASDASD"
-  Model.findOneAndUpdate(
-    { _id: "5f296c398ba8042f10da6238" },
-    { $push: { saved_statistics: objFriends } },
-    function (error, success) {
-      if (error) {
-        res.send("Error")
-        console.log(error)
-      } else {
-        res.send("Succes")
-        console.log(success)
-      }
-    }
-  )
+	var objFriends = "ASDASDASDASD"
+	Model.findOneAndUpdate({ _id: "5f296c398ba8042f10da6238" }, { $push: { saved_statistics: objFriends } }, function (
+		error,
+		success
+	) {
+		if (error) {
+			res.send("Error")
+			console.log(error)
+		} else {
+			res.send("Succes")
+			console.log(success)
+		}
+	})
 })
 
 app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!")
+	res.status(404).render("error", {})
 })
 
 app.listen(port)

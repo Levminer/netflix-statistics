@@ -2,15 +2,39 @@
 <html lang="en">
 	<head>
 		<link rel="shortcut icon" href="../assets/en/img/img_32.ico" type="image/x-icon" />
-		<meta name="description" content="Netflix Statistics English" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Netflix Statistics English" />
 		<title>Netflix Statistics</title>
 		<meta charset="UTF-8" />
+		<!-- ejs -->
+		<script>
+			let id
+			let supporter
+			let max_statistics
+			let saved_statistcs
+
+			<% if (typeof user != "undefined") { %>
+				id = "<%= user._id %>"
+			<% } %>
+
+			<% if (typeof user != "undefined") { %>
+				supporter = <%= user.supporter %>
+			<% } %>
+
+			<% if (typeof user != "undefined") { %>
+				max_statistics = <%= user.max_statistics %>
+			<% } %>
+
+			<% if (typeof user != "undefined") { %>
+				saved_statistics = <%= user.saved_statistics.length %>
+			<% } %>
+		</script>
 		<!-- js -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
 		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
 		<script defer src="../assets/en/js/convert.js"></script>
 		<script defer src="../assets/en/js/index.js"></script>
+		<script defer src="../assets/en/js/api.js"></script>
 		<!-- css -->
 		<link rel="stylesheet" href="../assets/en/css/index.css" />
 		<!-- analytics -->
@@ -26,6 +50,7 @@
 		</script>
 	</head>
 	<body>
+		<%- include("partials/navbar.ejs") %>
 		<div class="main">
 			<div class="one">
 				<h1 id="h11">Netflix Statistics</h1>
@@ -37,9 +62,9 @@
 				<p id="p2">
 					1. First you need to download your statistics from your Netflix profile.
 					<br />
-					<a target="_blank" href="https://help.netflix.com/en/node/101917">(Written help)</a>
-					<a target="_blank" href="https://www.netflix.com/viewingactivity">Link if your logged in</a>
-					<a target="_blank" href="../assets/en/vid/vid_en.mp4">(Video help)</a>
+					<a class="link" target="_blank" href="https://help.netflix.com/en/node/101917">(Written help)</a>
+					<a class="link" target="_blank" href="https://www.netflix.com/viewingactivity">Link if your logged in</a>
+					<a class="link" target="_blank" href="../assets/en/vid/vid_en.mp4">(Video help)</a>
 					<br />
 					2. Select the file you downloaded below. <br />
 					3. If you did everything right just scroll down and you can already see the stats.
@@ -67,10 +92,10 @@
 
 			<canvas id="chart"></canvas>
 
-			<button id="but" onclick="restart()">Clear statistics</button>
+			<button class="but" id="b1" onclick="restart()">Clear statistics</button>
+			<button class="but" id="b2" onclick="api()">Save statistics</button>
 		</div>
 
 		<%- include("partials/footer.ejs") %>
-
 	</body>
 </html>
