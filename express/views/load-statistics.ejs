@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="shortcut icon" href="../assets/load-statistics/img/img_32.ico" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Netflix Statistics Statistics" />
+		<title>Netflix Statistics</title>
+		<meta charset="UTF-8" />
+		<!-- ejs -->
+		<script>
+			let name = "<%= user.name %>"
+			let id = "<%= user._id %>"
+
+			let supporter = <%= user.supporter %>
+			let plan = <%= user.plan %>
+			let max_statistics = <%= user.max_statistics %>
+
+			let saved_statistics = <%- JSON.stringify(user.saved_statistics)%>
+		</script>
+		<!-- js -->
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+		<script defer src="../assets/load-statistics/js/index.js"></script>
+		<!-- css -->
+		<link rel="stylesheet" href="../assets/load-statistics/css/index.css" />
+		<!-- analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173567015-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag("js", new Date())
+
+			gtag("config", "UA-173567015-1")
+		</script>
+	</head>
+	<body>
+		<%- include("partials/navbar.ejs") %>
+		<div class="one">
+			<h1 id="h11">Netflix Statistics</h1>
+			<p id="p1">Welcome to your Netflix Statistics dashboard!</p>
+			<h2 id="h21">Make your statistics</h2>
+			<p id="p2">English version: <a class="link" href="/en">EN</a></p>
+			<p id="p2">Hungarian version: <a class="link" href="/hu">HU</a></p>
+			<p id="p2"><a class="link" href="/dashboard">Dashboard</a></p>
+		</div>
+
+		<div class="two">
+			<h1 id="h11">Saved Statistics</h1>
+			<p id="p1">You can view your saved statistics here!</p>
+			<p id="p1">You need a Tier 1, 2 or 3 plan to use this feature!</p>
+			<h2 id="h21">Stored statistics</h2>
+			<p id="p1">Please choose a statistic you want to view!</p>
+			<p id="p1" class="ss">Succesfully loaded <%= user.saved_statistics.length %> statistics!</p>
+			<select class="but" name="select" id="select"></select>
+			<br />
+			<button class="but" id="b1" onclick="start()">View statistic</button>
+		</div>
+
+		<div class="three">
+			<h1 id="h11">Statistics</h1>
+			<p id="p1">Here are your Netflix stats so far. I think you were surprised.</p>
+			<h2 id="h21">Viewed titles:</h2>
+			<h3 id="h31" class="counter">0</h3>
+			<h2>Titles</h2>
+			<h2 id="h21">Time spent:</h2>
+			<div class="grid">
+				<h3 id="h32" class="counter">0</h3>
+				<h3 id="h33" class="counter">0</h3>
+				<h3 id="h34" class="counter">0</h3>
+				<h2>In minutes</h2>
+				<h2>In hours</h2>
+				<h2>In days</h2>
+			</div>
+		</div>
+
+		<canvas id="chart"></canvas>
+
+		<button class="but" id="b2" onclick="restart()">Clear statistics</button>
+
+		<%- include("partials/footer.ejs") %>
+	</body>
+</html>

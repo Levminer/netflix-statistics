@@ -3,7 +3,6 @@
 }
 
 * {
-	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	font-family: Arial, Helvetica, sans-serif;
@@ -97,7 +96,7 @@ footer {
 	font-size: 20px;
 }
 
-#but {
+.but {
 	background: var(--red_color);
 	border-radius: 28px;
 	border: 1px solid var(--red_color);
@@ -108,10 +107,8 @@ footer {
 	padding: 16px 31px;
 	text-decoration: none;
 	transition: 0.2s ease-in;
-	position: relative;
-	top: 50px;
 }
-#but:hover {
+.but:hover {
 	background: rgb(42, 36, 36);
 	border: 1px solid var(--red_color);
 	color: var(--red_color);
@@ -124,7 +121,7 @@ footer {
 	background: rgb(42, 36, 36);
 
 	margin: 10px auto;
-	height: 300px;
+	height: 295px;
 	width: 570px;
 	border-radius: 25px;
 	margin-bottom: 25px;
@@ -137,36 +134,39 @@ footer {
 	background: rgb(42, 36, 36);
 
 	margin: 10px auto;
-	height: 300px;
+	height: 440px;
 	width: 570px;
 	border-radius: 25px;
 	margin-bottom: 25px;
 }
 
 .three {
+	display: none;
 	position: relative;
 	top: 5px;
 	text-align: center;
 	background: rgb(42, 36, 36);
 
 	margin: 10px auto;
-	height: 350px;
+	height: 370px;
 	width: 570px;
 	border-radius: 25px;
 	margin-bottom: 25px;
 }
 
-.four {
-	position: relative;
-	top: 5px;
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr min-content;
 	text-align: center;
-	background: rgb(42, 36, 36);
+}
 
-	margin: 10px auto;
-	height: 590px;
-	width: 570px;
-	border-radius: 25px;
-	margin-bottom: 25px;
+select {
+	width: 100px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	text-indent: 1px;
+	text-indent: 38%;
 }
 
 #h11 {
@@ -189,4 +189,30 @@ footer {
 #p2 {
 	padding: 10px;
 	font-size: 20px;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr min-content;
+	text-align: center;
+}
+
+#b1 {
+	position: relative;
+	top: 20px;
+}
+
+#b2 {
+	position: relative;
+	top: 50px;
+	display: none;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+#chart {
+	height: 1px;
 }

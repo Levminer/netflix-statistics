@@ -99,7 +99,11 @@ function processdata(csv) {
 		return item.indexOf(" ") !== 0
 	})
 
+	//remove last blank
+	data.splice(-1, 1)
+
 	console.log("After remove dates and blanks!")
+	
 	console.log(data.length)
 	console.log(data)
 

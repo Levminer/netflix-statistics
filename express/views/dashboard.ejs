@@ -41,8 +41,9 @@
 			<h1 id="h11">Netflix Statistics</h1>
 			<p id="p1">Welcome to your Netflix Statistics dashboard!</p>
 			<h2 id="h21">Make your statistics</h2>
-			<p id="p2">English version: <a class="link" href="/en" target="_blank">EN</a></p>
-			<p id="p2">Hungarian version: <a class="link" href="/hu" target="_blank">HU</a></p>
+			<p id="p2">English version: <a class="link" href="/en">EN</a></p>
+			<p id="p2">Hungarian version: <a class="link" href="/hu">HU</a></p>
+			<p id="p2"><a class="link" href="/dashboard/load-statistics">Statistics</a></p>
 		</div>
 
 		<div class="two">
@@ -63,11 +64,12 @@
 				<br />
 				You can buy or upgrade your plan here:
 			</p>
-			<p id="p2"><a class="link" href="https://patreon.com/levminer target="_blank"">Patreon</a></p>
+			<p id="p2"><a class="link" href="https://patreon.com/levminer" target="_blank">Patreon</a></p>
 			<h2 id="h21">Saved statistics</h2>
 			<p id="p1">
 				Saved statistics: <%= user.saved_statistics.length %>
 			</p>
+			<p id="p2"><a class="link" href="dashboard/load-statistics">Statistics</a></p>
 		</div>
 
 		<div class="four">
@@ -82,19 +84,11 @@
 			<p id="p1">
 				You can make a request to delete your account.
 				<br />
-				You need your 'Username' and your 'Id'.
+				You will be redirected to the delete page.
 				<br />
-				You can view this a little higher up.
+				You need your 'Username' and your 'Id'.
 			</p>
-			<p id="p2">
-				<a
-				class="link"
-				href="mailto:netflixstatistics@levminer.com?
-				subject=Request%20to%20delete%20account
-				&body=Type%20here%20your%20username:%20'HERE'%0D%0AType%20here%20your%20id:%20'HERE'"
-					>Request</a
-				>
-			</p>
+			<p id="p2"><a class="link" href="/dashboard/delete-account">Delete</a></p>
 
 			<h2 id="h21">Logout from your account</h2>
 			<p id="p1">You can logout here.</p>

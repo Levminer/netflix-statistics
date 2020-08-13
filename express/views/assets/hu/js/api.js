@@ -9,7 +9,7 @@ let api = () => {
 				body: JSON.stringify({ results, id }),
 			}
 
-			fetch("/api", options).then((res) => {
+			fetch("/api/save-statistics", options).then((res) => {
 				console.log(res)
 			})
 
@@ -33,6 +33,7 @@ let api = () => {
 		alert(
 			"A statisztika nem lett elmentve! Kérlek jelentkezz be! Át leszel irányítva egy új lapra, ha bejelentkeztél gyere vissza ide és nyomj F5-öt vagy frissitsd az oldalt!"
 		)
+		//! redirecting to wrong page
 		window.open("account/login")
 		location.reload()
 	}
