@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [dev]
 
+defaults:
+  run:
+    working-directory: express
+
 jobs:
   build:
     runs-on: self-hosted
@@ -20,10 +24,5 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: 
-        npm i
-        working-directory: ./express
-      - run: 
-        pm2 restart ns0
-        working-directory: ./express
-        
+      - run: npm i
+      - run: pm2 restart ns0
