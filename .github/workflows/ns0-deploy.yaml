@@ -19,14 +19,6 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - name: Create env file
-        run: |
-          touch .env
-          echo MONGODB_=${{ secrets.MONGODB_ }} >> .env
-          echo SERVER_="s0" >> .env
-          echo NODE_="n0" >> .env
-          echo PORT_="6969" >> .env
-          cat .env
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
