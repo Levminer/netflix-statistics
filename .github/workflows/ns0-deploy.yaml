@@ -19,7 +19,6 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - name: Make envfile
       uses: SpicyPizza/create-envfile@v1
       with:
         envkey_MONGODB_: ${{ secrets.MONGODB_ }}
