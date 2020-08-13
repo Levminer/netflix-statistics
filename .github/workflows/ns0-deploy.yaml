@@ -21,8 +21,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: 
-        working-directory: express
         npm i
-      - run: 
         working-directory: express
+      - run: 
         pm2 restart ns0
+        working-directory: express
+        
