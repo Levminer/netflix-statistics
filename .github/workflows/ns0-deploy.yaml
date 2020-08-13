@@ -23,7 +23,7 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo MONGODB_=${{ secrets.MONGODB_ }} >> .env
+          echo MONGODB_="${{ secrets.MONGODB_ }}" >> .env
           echo SERVER_="s0" >> .env
           echo NODE_="n0" >> .env
           echo PORT_="6969" >> .env
