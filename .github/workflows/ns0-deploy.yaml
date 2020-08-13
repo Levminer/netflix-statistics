@@ -16,9 +16,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: [14.x]
 
     steps:
+      - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_MONGODB_: ${{ secrets.MONGODB_ }}
+        envkey_SERVER_: "s0"
+        envkey_NODE_: "n0"
+        envkey_PORT_: "6969"
+
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1

@@ -13,7 +13,7 @@ const port = 8080
 
 const server = process.env.SERVER_
 const node = process.env.NODE_
-const version = "2.5.0"
+const version = "2.10.0"
 
 app.locals.server = server
 app.locals.node = node
