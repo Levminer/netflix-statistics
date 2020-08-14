@@ -33,7 +33,6 @@ let api = () => {
 		alert(
 			"The statistic could not be saved! Please log in! You will be redirected to a new page, if you are logged in come back here and press F5 or reload the page!"
 		)
-		//! redirecting to wrong page
 		window.open("account/login")
 		location.reload()
 	}

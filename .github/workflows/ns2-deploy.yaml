@@ -1,10 +1,10 @@
-name: ns0-deploy
+name: ns2-deploy
 
 on:
   push:
-    branches: [dev]
+    branches: [main]
   pull_request:
-    branches: [dev]
+    branches: [main]
 
 defaults:
   run:
@@ -12,7 +12,7 @@ defaults:
 
 jobs:
   build:
-    runs-on: [self-hosted, ns0]
+    runs-on: [self-hosted, ns2]
 
     strategy:
       matrix:
@@ -25,13 +25,13 @@ jobs:
           touch .env
           echo MONGODB_="${{ secrets.MONGODB_ }}" >> .env
           echo SERVER_="s0" >> .env
-          echo NODE_="n0" >> .env
-          echo PORT_="6969" >> .env
+          echo NODE_="n2" >> .env
+          echo PORT_="8181" >> .env
           cat .env
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
-      - run: pm2 restart ns0
+      - run: pm2 restart ns2
       # Created by: https://www.levminer.com

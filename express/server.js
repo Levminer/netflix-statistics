@@ -16,7 +16,7 @@ const app = express()
 const port = 8080
 
 // Locals
-const version = "2.19.0"
+const version = "2.0.0"
 const server = process.env.SERVER_
 const node = process.env.NODE_
 
@@ -85,7 +85,7 @@ app.get("/", (req, res) => {
 		"Content-Security-Policy",
 		"script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com"
 	)
-	res.header("Feature-Policy", "none")
+	res.header("Feature-Policy", "default", "none")
 	res.render("index", {})
 })
 
