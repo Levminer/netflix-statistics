@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const bcrypt = require("bcryptjs")
 const passport = require("passport")
+
 // Load User model
 const User = require("../models/User")
 const { forwardAuthenticated } = require("../config/auth")
@@ -18,15 +19,15 @@ router.post("/register", (req, res) => {
 	let errors = []
 
 	if (!name || !email || !password || !password2) {
-		errors.push({ msg: "Please enter all fields" })
+		errors.push({ msg: "Please enter all fields!" })
 	}
 
 	if (password != password2) {
-		errors.push({ msg: "Passwords do not match" })
+		errors.push({ msg: "Passwords do not match!" })
 	}
 
 	if (password.length < 6) {
-		errors.push({ msg: "Password must be at least 6 characters" })
+		errors.push({ msg: "Password must be at least 6 characters!" })
 	}
 
 	if (errors.length > 0) {
@@ -40,7 +41,7 @@ router.post("/register", (req, res) => {
 	} else {
 		User.findOne({ email: email }).then((user) => {
 			if (user) {
-				errors.push({ msg: "Email already exists" })
+				errors.push({ msg: "Email already exists!" })
 				res.render("register", {
 					errors,
 					name,
@@ -62,7 +63,7 @@ router.post("/register", (req, res) => {
 						newUser
 							.save()
 							.then((user) => {
-								req.flash("success_msg", "You are now registered and can log in")
+								req.flash("success_msg", "You are now registered and can log in!")
 								res.redirect("/account/login")
 							})
 							.catch((err) => console.log(err))
@@ -85,7 +86,7 @@ router.post("/login", (req, res, next) => {
 // Logout
 router.get("/logout", (req, res) => {
 	req.logout()
-	req.flash("success_msg", "You are logged out")
+	req.flash("success_msg", "You are logged out!")
 	res.redirect("/account/login")
 })
 

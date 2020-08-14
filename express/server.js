@@ -1,3 +1,4 @@
+// Requires
 const express = require("express")
 const mongoose = require("mongoose")
 const passport = require("passport")
@@ -5,41 +6,43 @@ const flash = require("connect-flash")
 const session = require("express-session")
 const helmet = require("helmet")
 
+// Exports
 const Model = require("./models/User")
 const { ensureAuthenticated, forwardAuthenticated } = require("./config/auth")
 require("dotenv").config("./.env")
+
+// Express
 const app = express()
 const port = 8080
 
+// Locals
+const version = "2.19.0"
 const server = process.env.SERVER_
 const node = process.env.NODE_
-const version = "2.18.0"
 
+app.locals.version = version
 app.locals.server = server
 app.locals.node = node
-app.locals.version = version
 
-// helmet
+// Helmet
 app.use(
 	helmet({
 		contentSecurityPolicy: false,
 	})
 )
 
-// Passport Config
-require("./config/passport")(passport)
+// Ejs
+app.set("view engine", "ejs")
 
-// DB Config
+// Configs
+require("./config/passport")(passport)
 const db = require("./config/keys").mongoURI
 
-// Connect to MongoDB
+// Mongodb
 mongoose
 	.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => console.log("MongoDB Connected"))
 	.catch((err) => console.log(err))
-
-// EJS
-app.set("view engine", "ejs")
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }))
@@ -61,44 +64,38 @@ app.use(passport.session())
 app.use(flash())
 
 // Global variables
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
 	res.locals.success_msg = req.flash("success_msg")
 	res.locals.error_msg = req.flash("error_msg")
 	res.locals.error = req.flash("error")
 	next()
 })
 
-// Routes
-app.use("/", require("./routes/index.js"))
-app.use("/account", require("./routes/account.js"))
-
+// Express middlewares
 app.use(express.json({ limit: "1mb" }))
 app.use(express.static(__dirname + "/views"))
 
+// External routes
+app.use("/", require("./routes/dashboard.js"))
+app.use("/account", require("./routes/account.js"))
+
+// Routes
 app.get("/", (req, res) => {
 	res.header(
 		"Content-Security-Policy",
-		"script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com http://localhost:8080"
+		"script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com"
 	)
 	res.header("Feature-Policy", "none")
 	res.render("index", {})
 })
 
-app.get("/en", (req, res, next) => {
-	res.header(
-		"Content-Security-Policy",
-		"script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com http://localhost:8080"
-	)
+app.get("/en", (req, res) => {
 	res.render("en", {
 		user: req.user,
 	})
 })
 
 app.get("/hu", (req, res) => {
-	res.header(
-		"Content-Security-Policy",
-		"script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com http://localhost:8080"
-	)
 	res.render("hu", {
 		user: req.user,
 	})
@@ -116,16 +113,17 @@ app.get("/dashboard/delete-account", ensureAuthenticated, (req, res) => {
 	})
 })
 
+// Api
 app.post("/api/save-statistics", ensureAuthenticated, (req, res) => {
 	let body = req.body
 	let id = body.id
 	let statistics = body.results
 
-	Model.findOneAndUpdate({ _id: id }, { $push: { saved_statistics: statistics } }, function (error, success) {
-		if (error) {
-			console.log(error)
+	Model.findOneAndUpdate({ _id: id }, { $push: { saved_statistics: statistics } }, (err) => {
+		if (err) {
+			console.log(err)
 		} else {
-			console.log(success)
+			console.log("Statistics uploaded succesfully!")
 		}
 	})
 
@@ -137,16 +135,21 @@ app.post("/api/delete-account", ensureAuthenticated, (req, res) => {
 	let id = body.id
 
 	Model.findByIdAndDelete(id, (err) => {
-		if (err) console.log(err)
-		console.log("Account deleted succesfully!")
+		if (err) {
+			console.log(err)
+		} else {
+			console.log("Account deleted succesfully!")
+		}
 	})
 
 	res.end()
 })
 
-app.use(function (req, res, next) {
+// Error
+app.use((req, res, next) => {
 	res.status(404).render("404", {})
 })
 
+// Start
 app.listen(process.env.PORT_ || port)
 console.log(`Started at ${port} in ${server} on ${node} with ${version}`)
