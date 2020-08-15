@@ -16,7 +16,7 @@ let api = () => {
 			alert(
 				"A statisztika sikeresen el lett metve! Már láthatod is a vezérlőpultodon! A vezérlőpulton meg tudod nézni az összes elmentett statisztikád!"
 			)
-			window.open("account/login")
+			window.open("/account/login")
 			location.reload()
 		} else {
 			alert(
@@ -33,7 +33,7 @@ let api = () => {
 		alert(
 			"A statisztika nem lett elmentve! Kérlek jelentkezz be! Át leszel irányítva egy új lapra, ha bejelentkeztél gyere vissza ide és nyomj F5-öt vagy frissitsd az oldalt!"
 		)
-		window.open("account/login")
+		window.open("/account/login")
 		location.reload()
 	}
 }

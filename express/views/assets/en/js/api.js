@@ -16,7 +16,7 @@ let api = () => {
 			alert(
 				"The statistic was saved successfully! You can view it at your dashboard! At your dashboard you can view all of your saved statistics!"
 			)
-			window.open("account/login")
+			window.open("/account/login")
 			location.reload()
 		} else {
 			alert(
@@ -33,7 +33,7 @@ let api = () => {
 		alert(
 			"The statistic could not be saved! Please log in! You will be redirected to a new page, if you are logged in come back here and press F5 or reload the page!"
 		)
-		window.open("account/login")
+		window.open("/account/login")
 		location.reload()
 	}
 }

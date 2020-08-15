@@ -46,7 +46,7 @@ function processdata(csv) {
 	console.log(data.length)
 	console.log(data)
 
-	//remove dates and blanks
+	//remove dates and blanks (english dates)
 	data = data.filter(function (item) {
 		return item.indexOf("1/") !== 0
 	})
@@ -95,6 +95,32 @@ function processdata(csv) {
 		return item.indexOf("12/") !== 0
 	})
 
+	//remove dates and blanks (not english dates)
+	data = data.filter(function (item) {
+		return item.indexOf("2016.") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("2017.") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("2018.") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("2019.") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("2020.") !== 0
+	})
+
+	data = data.filter(function (item) {
+		return item.indexOf("2021.") !== 0
+	})
+
+	// remove empty elements
 	data = data.filter(function (item) {
 		return item.indexOf(" ") !== 0
 	})
@@ -103,7 +129,7 @@ function processdata(csv) {
 	data.splice(-1, 1)
 
 	console.log("After remove dates and blanks!")
-	
+
 	console.log(data.length)
 	console.log(data)
 
