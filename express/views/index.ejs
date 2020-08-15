@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+  _   _      _    __ _ _           _____ _        _   _     _   _          
+ | \ | |    | |  / _| (_)         / ____| |      | | (_)   | | (_)         
+ |  \| | ___| |_| |_| |___  __   | (___ | |_ __ _| |_ _ ___| |_ _  ___ ___ 
+ | . ` |/ _ \ __|  _| | \ \/ /    \___ \| __/ _` | __| / __| __| |/ __/ __|
+ | |\  |  __/ |_| | | | |>  <     ____) | || (_| | |_| \__ \ |_| | (__\__ \
+ |_| \_|\___|\__|_| |_|_/_/\_\   |_____/ \__\__,_|\__|_|___/\__|_|\___|___/
+
+ Created by: https://www.levminer.com - Source code: https://github.com/Levminer/netflix-statistics
+	-->
+	<head>
+		<link rel="shortcut icon" href="./assets/index/img/img_32.ico" type="image/x-icon" />
+		<meta name="description" content="View Your Netflix Statistics Online" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Netflix Statistics</title>
+		<meta charset="UTF-8" />
+		<!-- css -->
+		<link rel="stylesheet" href="./assets/index/css/index.css" />
+		<!-- analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173567015-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag("js", new Date())
+
+			gtag("config", "UA-173567015-1")
+		</script>
+	</head>
+	<body>
+		<%- include("partials/navbar.ejs") %>
+
+		<div class="one">
+			<h1 id="h11">Netflix Statistics</h1>
+			<p id="p1">Please choose language! / Kérlek válassz nyelvet!</p>
+			<a id="but" href="./en/">English</a>
+			<a id="but" href="./hu/">Magyar</a>
+			<p id="p2"><a class="link" href="./dashboard">Dashboard</a></p>
+		</div>
+
+		<%- include("partials/footer.ejs") %>
+	</body>
+</html>

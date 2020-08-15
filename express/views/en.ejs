@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+  _   _      _    __ _ _           _____ _        _   _     _   _          
+ | \ | |    | |  / _| (_)         / ____| |      | | (_)   | | (_)         
+ |  \| | ___| |_| |_| |___  __   | (___ | |_ __ _| |_ _ ___| |_ _  ___ ___ 
+ | . ` |/ _ \ __|  _| | \ \/ /    \___ \| __/ _` | __| / __| __| |/ __/ __|
+ | |\  |  __/ |_| | | | |>  <     ____) | || (_| | |_| \__ \ |_| | (__\__ \
+ |_| \_|\___|\__|_| |_|_/_/\_\   |_____/ \__\__,_|\__|_|___/\__|_|\___|___/
+
+ Created by: https://www.levminer.com - Source code: https://github.com/Levminer/netflix-statistics
+	-->
+	<head>
+		<link rel="shortcut icon" href="../assets/en/img/img_32.ico" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Netflix Statistics English" />
+		<title>Netflix Statistics</title>
+		<meta charset="UTF-8" />
+		<!-- ejs -->
+		<script>
+			let id
+			let supporter
+			let max_statistics
+			let saved_statistcs
+
+			<% if (typeof user != "undefined") { %>
+				id = "<%= user._id %>"
+			<% } %>
+
+			<% if (typeof user != "undefined") { %>
+				supporter = <%= user.supporter %>
+			<% } %>
+
+			<% if (typeof user != "undefined") { %>
+				max_statistics = <%= user.max_statistics %>
+			<% } %>
+
+			<% if (typeof user != "undefined") { %>
+				saved_statistics = <%= user.saved_statistics.length %>
+			<% } %>
+		</script>
+		<!-- js -->
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+		<script defer src="../assets/en/js/convert.js"></script>
+		<script defer src="../assets/en/js/index.js"></script>
+		<script defer src="../assets/en/js/api.js"></script>
+		<!-- css -->
+		<link rel="stylesheet" href="../assets/en/css/index.css" />
+		<!-- analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173567015-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag("js", new Date())
+
+			gtag("config", "UA-173567015-1")
+		</script>
+	</head>
+	<body>
+		<%- include("partials/navbar.ejs") %>
+		<div class="main">
+			<div class="one">
+				<h1 id="h11">Netflix Statistics</h1>
+				<p id="p1">
+					Wondering how much time you spent watching Netflix in your life so far? <br />
+					If you want to know you have to follow the instructions!
+				</p>
+				<h2 id="h21">Instructions</h2>
+				<p id="p2">
+					1. First you need to download your statistics from your Netflix profile.
+					<br />
+					<a class="link" target="_blank" href="https://help.netflix.com/en/node/101917">(Written help)</a>
+					<a class="link" target="_blank" href="https://www.netflix.com/viewingactivity">Link if your logged in</a>
+					<a class="link" target="_blank" href="../assets/en/vid/vid_en.mp4">(Video help)</a>
+					<br />
+					2. Select the file you downloaded below. <br />
+					3. If you did everything right just scroll down and you can already see the stats.
+				</p>
+				<h2 id="h21">Choose the file</h2>
+				<input type="file" id="csvFileInput" onchange="handlefiles(this.files)" accept=".csv" />
+			</div>
+
+			<div class="two">
+				<h1 id="h11">Statistics</h1>
+				<p id="p3">Here are your Netflix stats so far. I think you were surprised.</p>
+				<h2 id="h21">Viewed titles:</h2>
+				<h3 id="h31" class="counter">0</h3>
+				<h2>Titles</h2>
+				<h2 id="h21">Time spent:</h2>
+				<div class="grid">
+					<h3 id="h32" class="counter">0</h3>
+					<h3 id="h33" class="counter">0</h3>
+					<h3 id="h34" class="counter">0</h3>
+					<h2>In minutes</h2>
+					<h2>In hours</h2>
+					<h2>In days</h2>
+				</div>
+			</div>
+
+			<canvas id="chart"></canvas>
+
+			<button class="but" id="b1" onclick="restart()">Clear statistics</button>
+			<button class="but" id="b2" onclick="api()">Save statistics</button>
+		</div>
+
+		<%- include("partials/footer.ejs") %>
+	</body>
+</html>

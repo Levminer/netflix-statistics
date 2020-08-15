@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+  _   _      _    __ _ _           _____ _        _   _     _   _          
+ | \ | |    | |  / _| (_)         / ____| |      | | (_)   | | (_)         
+ |  \| | ___| |_| |_| |___  __   | (___ | |_ __ _| |_ _ ___| |_ _  ___ ___ 
+ | . ` |/ _ \ __|  _| | \ \/ /    \___ \| __/ _` | __| / __| __| |/ __/ __|
+ | |\  |  __/ |_| | | | |>  <     ____) | || (_| | |_| \__ \ |_| | (__\__ \
+ |_| \_|\___|\__|_| |_|_/_/\_\   |_____/ \__\__,_|\__|_|___/\__|_|\___|___/
+
+ Created by: https://www.levminer.com - Source code: https://github.com/Levminer/netflix-statistics
+	-->
+	<head>
+		<link rel="shortcut icon" href="../assets/delete-account/img/img_32.ico" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Netflix Statistics Delete Account" />
+		<title>Netflix Statistics</title>
+		<meta charset="UTF-8" />
+		<!-- ejs -->
+		<script>
+			let name = "<%= user.name %>"
+			let id = "<%= user._id %>"
+		</script>
+		<!-- js -->
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+		<script defer src="../assets/delete-account/js/index.js"></script>
+		<!-- css -->
+		<link rel="stylesheet" href="../assets/delete-account/css/index.css" />
+		<!-- analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173567015-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag("js", new Date())
+
+			gtag("config", "UA-173567015-1")
+		</script>
+	</head>
+	<body>
+		<%- include("partials/navbar.ejs") %>
+		<div class="one">
+			<h1 id="h11">Netflix Statistics</h1>
+			<p id="p1">Welcome to your Netflix Statistics dashboard!</p>
+			<h2 id="h21">Make your statistics</h2>
+			<p id="p2">English version: <a class="link" href="/en">EN</a></p>
+			<p id="p2">Hungarian version: <a class="link" href="/hu">HU</a></p>
+			<p id="p2"><a class="link" href="/dashboard">Dashboard</a></p>
+		</div>
+
+		<div class="two">
+			<h1 id="h11">Delete Account</h1>
+			<p id="p1">You can delete your account here!</p>
+			<p id="p1">All your statistics will be lost!</p>
+			<h2 id="h21">Confirm delete</h2>
+			<p id="p1">Please write your account name and id in the form!</p>
+			<p id="p1">Name: <u><%= user.name %></u> Id: <u><%= user.id %></u></p>
+			<input type="text" name="name" id="input_name" class="input" placeholder="Your account name" spellcheck="false" />
+			<input type="text" name="id" id="input_id" class="input" placeholder="Your account id" spellcheck="false" />
+			<br />
+			<button class="but" id="b1" onclick="start()">Delete account</button>
+		</div>
+
+		<%- include("partials/footer.ejs") %>
+	</body>
+</html>
