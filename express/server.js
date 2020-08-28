@@ -13,10 +13,10 @@ require("dotenv").config("./.env")
 
 // Express
 const app = express()
-const port = 8080
+const port = process.env.PORT_ || 8080
 
 // Locals
-const version = "2.0.0"
+const version = "2.1.0"
 const server = process.env.SERVER_
 const node = process.env.NODE_
 
@@ -101,6 +101,10 @@ app.get("/hu", (req, res) => {
 	})
 })
 
+app.get("/about", (req, res) => {
+	res.render("about", {})
+})
+
 app.get("/dashboard/load-statistics", ensureAuthenticated, (req, res) => {
 	res.render("load-statistics", {
 		user: req.user,
@@ -151,5 +155,5 @@ app.use((req, res, next) => {
 })
 
 // Start
-app.listen(process.env.PORT_ || port)
+app.listen(port)
 console.log(`Started at ${port} in ${server} on ${node} with ${version}`)
