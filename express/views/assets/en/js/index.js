@@ -1,6 +1,9 @@
-let restart = () => {
+let reload = () => {
 	//?reload the page
-	location.reload()
+	let reload_confirm = confirm("Are you sure you want to clear the statistics?")
+	if (reload_confirm == true) {
+		location.reload()
+	}
 }
 
 let titles = []
@@ -47,7 +50,7 @@ let start = () => {
 	let c2 = new CountUp("h32", 0, watchtime_minute)
 	let c3 = new CountUp("h33", 0, watchtime_hour)
 	let c4 = new CountUp("h34", 0, watchtime_day)
-	
+
 	c1.start()
 	c2.start()
 	c3.start()

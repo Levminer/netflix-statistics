@@ -80,7 +80,10 @@
 					3. If you did everything right just scroll down and you can already see the stats.
 				</p>
 				<h2 id="h21">Choose the file</h2>
-				<input type="file" id="csvFileInput" onchange="handlefiles(this.files)" accept=".csv" />
+				<input type="file" class="file" id="file" onchange="handlefiles(this.files)" accept=".csv" />
+				<button type="button" class="input" id="input" onclick="document.getElementById('file').click()" class="button red">
+					Choose a file
+				</button>
 			</div>
 
 			<div class="two">
@@ -102,7 +105,7 @@
 
 			<canvas id="chart"></canvas>
 
-			<button class="but" id="b1" onclick="restart()">Clear statistics</button>
+			<button class="but" id="b1" onclick="reload()">Clear statistics</button>
 			<button class="but" id="b2" onclick="api()">Save statistics</button>
 		</div>
 

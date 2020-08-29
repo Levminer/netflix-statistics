@@ -1,32 +1,48 @@
 let data = []
+let input = document.querySelector("#input")
+let state = 0
 
-function handlefiles(files) {
+let handlefiles = (files) => {
+	if (state == 1) {
+		let restart_confirm = confirm(
+			"Are you want to load a new statistics? Do you want to clear the uploded statistics and upload a new one?"
+		)
+
+		if (restart_confirm == true) {
+			location.reload()
+		} else {
+			return
+		}
+	}
+
 	if (window.FileReader) {
 		getastext(files[0])
+		input.innerText = "File uploaded successfully"
+		state = 1
 	} else {
-		alert("A böngésződ nem támogatja ezt a funkciót! Próbálj meg más böngészőt használni!")
+		alert("Your browser doesn't support this function! Tyr another browser!")
 	}
 }
 
-function getastext(fileToRead) {
+let getastext = (fileToRead) => {
 	let reader = new FileReader()
 	reader.onload = loadhandler
 	reader.onerror = errorhandler
 	reader.readAsText(fileToRead)
 }
 
-function loadhandler(event) {
+let loadhandler = (event) => {
 	let csv = event.target.result
 	processdata(csv)
 }
 
-function errorhandler(evt) {
+let errorhandler = (evt) => {
 	if (evt.target.error.name == "NotReadableError") {
-		alert("Nem sikerült feltölteni a fájlt! Sérült vagy rossz fájlt töltöttél fel!")
+		alert("Failed to upload the file! You uploaded a corrupted or not supported file!")
 	}
 }
 
-function processdata(csv) {
+let processdata = (csv) => {
 	// remove double qoutes
 	let pre_data1 = csv.replace(/\"/g, "")
 
