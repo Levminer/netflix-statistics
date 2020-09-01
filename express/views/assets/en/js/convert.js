@@ -1,32 +1,48 @@
 let data = []
+let input = document.querySelector("#input")
+let state = 0
 
-function handlefiles(files) {
+let handlefiles = (files) => {
+	if (state == 1) {
+		let restart_confirm = confirm(
+			"Are you want to load a new statistics? Do you want to clear the uploded statistics and upload a new one?"
+		)
+
+		if (restart_confirm == true) {
+			location.reload()
+		} else {
+			return
+		}
+	}
+
 	if (window.FileReader) {
 		getastext(files[0])
+		input.innerText = "File uploaded successfully"
+		state = 1
 	} else {
-		alert("A böngésződ nem támogatja ezt a funkciót! Próbálj meg más böngészőt használni!")
+		alert("Your browser doesn't support this function! Tyr another browser!")
 	}
 }
 
-function getastext(fileToRead) {
+let getastext = (fileToRead) => {
 	let reader = new FileReader()
 	reader.onload = loadhandler
 	reader.onerror = errorhandler
 	reader.readAsText(fileToRead)
 }
 
-function loadhandler(event) {
+let loadhandler = (event) => {
 	let csv = event.target.result
 	processdata(csv)
 }
 
-function errorhandler(evt) {
+let errorhandler = (evt) => {
 	if (evt.target.error.name == "NotReadableError") {
-		alert("Nem sikerült feltölteni a fájlt! Sérült vagy rossz fájlt töltöttél fel!")
+		alert("Failed to upload the file! You uploaded a corrupted or not supported file!")
 	}
 }
 
-function processdata(csv) {
+let processdata = (csv) => {
 	// remove double qoutes
 	let pre_data1 = csv.replace(/\"/g, "")
 
@@ -47,76 +63,76 @@ function processdata(csv) {
 	console.log(data)
 
 	//remove dates and blanks (english dates)
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("1/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("2/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("3/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("4/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("5/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("6/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("7/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("8/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("9/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("10/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("11/") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("12/") !== 0
 	})
 
 	//remove dates and blanks (not english dates)
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("2016.") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("2017.") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("2018.") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("2019.") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("2020.") !== 0
 	})
 
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf("2021.") !== 0
 	})
 

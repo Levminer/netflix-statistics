@@ -80,11 +80,14 @@
 					3. Ha mindent jól csináltál csak görgess lejjebb és már látod is a statisztikákat.
 				</p>
 				<h2 id="h21">Fájl kiválasztása</h2>
-				<input type="file" id="csvFileInput" onchange="handlefiles(this.files)" accept=".csv" />
+				<input type="file" class="file" id="file" onchange="handlefiles(this.files)" accept=".csv" />
+				<button type="button" class="input" id="input" onclick="document.getElementById('file').click()" class="button red">
+					Válassz egy fájlt
+				</button>
 			</div>
 
 			<div class="two">
-				<h1 id="h11">Statisztika</h1>
+				<h1 id="h11">Megtekintési Statisztika</h1>
 				<p id="p3">Íme az eddigi Netflix statisztikád. Szerintem meglepődtél.</p>
 				<h2 id="h21">Megtekintett címek:</h2>
 				<h3 id="h31" class="counter">0</h3>
@@ -100,9 +103,26 @@
 				</div>
 			</div>
 
+			<div class="three">
+				<h1 id="h11">Kedvenc Statisztika</h1>
+				<p id="p3">Íme az eddigi Netflix statisztikád. Csak ne nézz meg mégegy részt.</p>
+				<h2 id="h21">Legtöbbet megtekintett cím:</h2>
+				<h3 id="h35" class="counter">0</h3>
+				<h2>Kedvenc cím</h2>
+				<h2 id="h21">Eltöltött idő:</h2>
+				<div class="grid">
+					<h3 id="h36" class="counter">0</h3>
+					<h3 id="h37" class="counter">0</h3>
+					<h3 id="h38" class="counter">0</h3>
+					<h2>Percben</h2>
+					<h2>Epizódok</h2>
+					<h2>Órában</h2>
+				</div>
+			</div>
+
 			<canvas id="chart"></canvas>
 
-			<button class="but" id="b1" onclick="restart()">Statisztika törlése</button>
+			<button class="but" id="b1" onclick="reload()">Statisztika törlése</button>
 			<button class="but" id="b2" onclick="api()">Statisztika mentése</button>
 		</div>
 
