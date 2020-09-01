@@ -152,6 +152,18 @@ footer {
 	margin-bottom: 25px;
 }
 
+.three {
+	display: none;
+	text-align: center;
+	background: rgb(42, 36, 36);
+
+	margin: 10px auto;
+	height: 450px;
+	width: 750px;
+	border-radius: 25px;
+	margin-bottom: 25px;
+}
+
 .grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -219,4 +231,8 @@ footer {
 
 *:focus {
 	outline: none;
+}
+
+#h35 {
+	font-size: 48px;
 }
