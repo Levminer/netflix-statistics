@@ -28,10 +28,6 @@ jobs:
                   echo NODE_="n0" >> .env
                   echo PORT_="6969" >> .env
                   cat .env
-            - name: Wait for 30 seconds
-              uses: jakejarvis/wait-action@master
-              with:
-                  time: "60s"
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
