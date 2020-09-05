@@ -17,10 +17,6 @@ jobs:
                 node-version: [14.x]
 
         steps:
-            - name: Wait for 60 seconds
-              uses: jakejarvis/wait-action@master
-              with:
-                  time: "60s"
             - uses: actions/checkout@v2
             - name: Create env file
               run: |
