@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const passport = require("passport")
 const flash = require("connect-flash")
 const session = require("express-session")
-//! TEST const helmet = require("helmet")
+const helmet = require("helmet")
 
 // exports
 const Model = require("./models/User")
