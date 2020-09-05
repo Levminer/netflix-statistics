@@ -20,7 +20,7 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
-            - name: Wait for 30 seconds
+            - name: Wait for 60 seconds
               uses: jakejarvis/wait-action@master
               with:
                   time: "60s"
