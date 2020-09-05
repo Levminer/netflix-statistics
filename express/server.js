@@ -15,9 +15,8 @@ require("dotenv").config("./.env")
 const app = express()
 const port = process.env.PORT_ || 8080
 
-
 // locals
-const version = "2.4.0"
+const version = "2.4.1"
 const server = process.env.SERVER_
 const node = process.env.NODE_
 
