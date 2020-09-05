@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const passport = require("passport")
 const flash = require("connect-flash")
 const session = require("express-session")
-const helmet = require("helmet")
+//! TEST const helmet = require("helmet")
 
 // Exports
 const Model = require("./models/User")
@@ -16,7 +16,7 @@ const app = express()
 const port = process.env.PORT_ || 8080
 
 // Locals
-const version = "2.2.0"
+const version = "2.3.0"
 const server = process.env.SERVER_
 const node = process.env.NODE_
 
@@ -24,12 +24,12 @@ app.locals.version = version
 app.locals.server = server
 app.locals.node = node
 
-// Helmet
-app.use(
+//! TEST Helmet
+/*  app.use(
 	helmet({
 		contentSecurityPolicy: false,
 	})
-)
+) */
 
 // Ejs
 app.set("view engine", "ejs")

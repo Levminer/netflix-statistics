@@ -1,6 +1,6 @@
 {
 	"name": "netflix-statistics",
-	"version": "2.1.0",
+	"version": "2.3.0",
 	"description": "Netflix Statistics",
 	"main": "server.js",
 	"scripts": {

@@ -93,8 +93,7 @@ footer {
 	width: 100%;
 	position: relative;
 	right: 0;
-	bottom: -215px;
-	left: 0;
+	bottom: -369px;
 	text-align: center;
 	font-size: 20px;
 }
@@ -102,14 +101,17 @@ footer {
 #b1 {
 	position: relative;
 	display: none;
-	top: 50px;
+	top: 15px;
+	margin-bottom: 25px;
+	right: 10px;
 }
 
 #b2 {
 	position: relative;
 	display: none;
+	margin-bottom: 25px;
+	top: 15px;
 	left: 5px;
-	top: 50px;
 }
 
 .but {
@@ -236,4 +238,14 @@ footer {
 
 #h35 {
 	font-size: 48px;
+}
+
+.four {
+	display: none;
+	text-align: center;
+	background: rgb(42, 36, 36);
+	margin: 10px auto;
+	width: 1500px;
+	border-radius: 25px;
+	margin-bottom: 25px;
 }

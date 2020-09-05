@@ -79,13 +79,15 @@ let start = () => {
 	let foo = document.querySelector("#foo")
 	let two = document.querySelector(".two")
 	let thr = document.querySelector(".three")
-	let but1 = document.querySelector("#b1")
-	let but2 = document.querySelector("#b2")
-	foo.style.bottom = "-90px"
+	let fou = document.querySelector(".four")
+	let bu1 = document.querySelector("#b1")
+	let bu2 = document.querySelector("#b2")
+	foo.style.bottom = "-5px"
 	two.style.display = "block"
 	thr.style.display = "block"
-	but1.style.display = "inline"
-	but2.style.display = "inline"
+	fou.style.display = "block"
+	bu1.style.display = "inline"
+	bu2.style.display = "inline"
 
 	//? make random chart colors
 	let colors = []
@@ -125,7 +127,6 @@ let start = () => {
 
 	//? Make the chart
 	let mychart = document.getElementById("chart").getContext("2d")
-
 	Chart.defaults.global.defaultFontColor = "white"
 
 	let thechart = new Chart(mychart, {
@@ -138,8 +139,13 @@ let start = () => {
 					data: chart_data_2,
 					backgroundColor: colors,
 					borderWidth: 3,
+					hoverBorderWidth: 9,
 				},
 			],
+		},
+		options: {
+			responsive: false,
+			maintainAspectRatio: false,
 		},
 	})
 }
