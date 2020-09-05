@@ -249,3 +249,33 @@ footer {
 	border-radius: 25px;
 	margin-bottom: 25px;
 }
+
+.alert {
+	padding: 15px;
+	background-color: rgb(222, 10, 10);
+	color: white;
+}
+
+.close {
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.close:hover {
+	color: black;
+}
+
+.go:link {
+	text-decoration: underline !important;
+	color: white;
+}
+.go:visited {
+	text-decoration: underline !important;
+	color: white;
+}

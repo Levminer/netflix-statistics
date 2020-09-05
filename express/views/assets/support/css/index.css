@@ -17,6 +17,12 @@ header {
 	font-size: 20px;
 }
 
+#h21 {
+	color: var(--red_color);
+	font-size: 40px;
+	padding: 5px;
+}
+
 .logo {
 	cursor: pointer;
 	color: var(--red_color);
@@ -84,7 +90,6 @@ body {
 	background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(32, 28, 31, 1) 50%, rgba(0, 0, 0, 1) 100%);
 	text-align: center;
 	color: white;
-	overflow-x: hidden;
 }
 
 footer {
@@ -92,7 +97,7 @@ footer {
 	width: 100%;
 	position: relative;
 	right: 0;
-	bottom: -5px;
+	bottom: -19px;
 	left: 0;
 	text-align: center;
 	font-size: 20px;
@@ -125,47 +130,8 @@ footer {
 	background: rgb(42, 36, 36);
 
 	margin: 10px auto;
-	height: 300px;
-	width: 570px;
-	border-radius: 25px;
-	margin-bottom: 25px;
-}
-
-.two {
-	position: relative;
-	top: 5px;
-	text-align: center;
-	background: rgb(42, 36, 36);
-
-	margin: 10px auto;
-	height: 300px;
-	width: 570px;
-	border-radius: 25px;
-	margin-bottom: 25px;
-}
-
-.three {
-	position: relative;
-	top: 5px;
-	text-align: center;
-	background: rgb(42, 36, 36);
-
-	margin: 10px auto;
-	height: 350px;
-	width: 570px;
-	border-radius: 25px;
-	margin-bottom: 25px;
-}
-
-.four {
-	position: relative;
-	top: 5px;
-	text-align: center;
-	background: rgb(42, 36, 36);
-
-	margin: 10px auto;
-	height: 590px;
-	width: 570px;
+	height: 770px;
+	width: 555px;
 	border-radius: 25px;
 	margin-bottom: 25px;
 }
@@ -181,13 +147,29 @@ footer {
 	font-size: 20px;
 }
 
-#h21 {
-	color: var(--red_color);
-	font-size: 40px;
-	padding: 5px;
-}
-
 #p2 {
+	position: relative;
+	top: 75px;
 	padding: 10px;
 	font-size: 20px;
+	text-decoration: underline;
+	color: var(--red_color);
+}
+
+.u {
+	cursor: pointer;
+	padding: 5px;
+	font-size: 20px;
+	color: var(--red_color);
+	text-decoration: underline;
+}
+
+.ver:link {
+	text-decoration: underline;
+	color: var(--red_color);
+}
+
+.ver:visited {
+	text-decoration: underline;
+	color: var(--red_color);
 }

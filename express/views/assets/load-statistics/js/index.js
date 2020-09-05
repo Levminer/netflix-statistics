@@ -1,3 +1,13 @@
+let state = 0
+
+let reload = () => {
+	//?reload the page
+	let reload_confirm = confirm("Are you sure you want to clear the statistics?")
+	if (reload_confirm == true) {
+		location.reload()
+	}
+}
+
 console.log(saved_statistics)
 console.log(saved_statistics.length)
 
@@ -18,11 +28,23 @@ if (saved_statistics.length == 0) {
 	select.appendChild(option)
 }
 
-let restart = () => {
-	location.reload()
-}
-
 let start = () => {
+	//?start
+
+	if (state == 1) {
+		let restart_confirm = confirm(
+			"Are you want to load a  new saved statistics? Do you want to clear the saved statistics and choose a new one?"
+		)
+
+		if (restart_confirm == true) {
+			location.reload()
+		} else {
+			return
+		}
+	}
+
+	state++
+
 	//? prepare the statistic
 
 	// get value from select
@@ -95,7 +117,7 @@ let start = () => {
 	let fou = document.querySelector(".four")
 	let fiv = document.querySelector(".five")
 	let but = document.querySelector("#b1")
-	foo.style.bottom = "-90px"
+	foo.style.bottom = "-10px"
 	thr.style.display = "block"
 	fou.style.display = "block"
 	fiv.style.display = "block"

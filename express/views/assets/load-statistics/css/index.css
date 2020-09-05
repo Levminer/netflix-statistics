@@ -90,10 +90,17 @@ footer {
 	width: 100%;
 	position: relative;
 	right: 0;
-	bottom: -5px;
-	left: 0;
+	bottom: -29px;
 	text-align: center;
 	font-size: 20px;
+}
+
+h3 {
+	font-size: 23.4px !important;
+}
+
+h4 {
+	font-size: 20px !important;
 }
 
 .but {
@@ -148,7 +155,7 @@ footer {
 	background: rgb(42, 36, 36);
 
 	margin: 10px auto;
-	height: 370px;
+	height: 360px;
 	width: 570px;
 	border-radius: 25px;
 	margin-bottom: 25px;
@@ -214,6 +221,15 @@ h3 {
 	font-size: 30px;
 }
 
+#p3 {
+	padding: 10px;
+	font-size: 20px;
+}
+
+#h35 {
+	font-size: 48px;
+}
+
 #chart {
 	height: 1px;
 }
@@ -224,7 +240,7 @@ h3 {
 	background: rgb(42, 36, 36);
 
 	margin: 10px auto;
-	height: 330px;
+	height: 380px;
 	width: 750px;
 	border-radius: 25px;
 	margin-bottom: 25px;
