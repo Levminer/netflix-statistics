@@ -65,7 +65,7 @@
 			<p id="p1" class="ss">Succesfully loaded <%= user.saved_statistics.length %> statistics!</p>
 			<select class="but" name="select" id="select"></select>
 			<br />
-			<button class="but" id="b1" onclick="start()">View statistic</button>
+			<button class="but" id="b1" onclick="start()">View statistics</button>
 		</div>
 
 		<div class="three">
@@ -85,10 +85,35 @@
 			</div>
 		</div>
 
-		<canvas id="chart"></canvas>
+		<div class="four">
+			<h1 id="h11">Favourite Statistics</h1>
+			<p id="p3">Here are your favourite Netflix show stats. Just don't watch one more episode.</p>
+			<h2 id="h21">Most Viewed Title:</h2>
+			<h3 id="h35" class="counter">0</h3>
+			<h2>Favourite title</h2>
+			<h2 id="h21">Time Spent:</h2>
+			<div class="grid">
+				<h3 id="h36" class="counter">0</h3>
+				<h3 id="h37" class="counter">0</h3>
+				<h3 id="h38" class="counter">0</h3>
+				<h2>In minutes</h2>
+				<h2>Episodes</h2>
+				<h2>In hours</h2>
+			</div>
+		</div>
 
-		<button class="but" id="b2" onclick="restart()">Clear statistics</button>
+		<div class="five">
+			<h1 id="h11">Statistics Chart</h1>
+			<p id="p3">Here is a nicely drawn chart from your statistics.</p>
 
+			<div class="chart">
+				<canvas id="chart" style="position: relative; height: 1000px; width: 1500px"></canvas>
+			</div>
+
+			<h2 id="h21">Clear & Save</h2>
+			<p id="p3">You can clear or save your uploaded statistics here.</p>
+			<button class="but" id="b1" onclick="reload()">Clear statistics</button>
+		</div>
 		<%- include("partials/footer.ejs") %>
 	</body>
 </html>

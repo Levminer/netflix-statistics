@@ -200,7 +200,8 @@ select {
 
 #b1 {
 	position: relative;
-	top: 20px;
+	top: 15px;
+	margin-bottom: 25px;
 }
 
 #b2 {
@@ -215,4 +216,26 @@ h3 {
 
 #chart {
 	height: 1px;
+}
+
+.four {
+	display: none;
+	text-align: center;
+	background: rgb(42, 36, 36);
+
+	margin: 10px auto;
+	height: 330px;
+	width: 750px;
+	border-radius: 25px;
+	margin-bottom: 25px;
+}
+
+.five {
+	display: none;
+	text-align: center;
+	background: rgb(42, 36, 36);
+	margin: 10px auto;
+	width: 1500px;
+	border-radius: 25px;
+	margin-bottom: 25px;
 }
