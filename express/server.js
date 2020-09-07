@@ -15,7 +15,7 @@ require("dotenv").config("./.env")
 const app = express()
 const port = process.env.PORT_ || 8080
 
-const version = "2.4.2"
+const version = "2.5.0"
 const server = process.env.SERVER_
 const node = process.env.NODE_
 
@@ -80,7 +80,7 @@ app.use("/account", require("./routes/account.js"))
 // routes
 app.get("/", (req, res) => {
 	res.header("Content-Security-Policy", "script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com")
-	res.header("Feature-Policy", "none")
+	res.header("Feature-Policy", "*", "none")
 	res.render("index", {})
 })
 

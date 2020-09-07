@@ -1,92 +1,7 @@
-:root {
-	--red_color: rgb(222, 10, 10);
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 10%;
-	font-size: 20px;
-}
-
-.logo {
-	cursor: pointer;
-	color: var(--red_color);
-	text-decoration: none;
-	font-weight: bolder;
-}
-
-.nav__links a,
-.nb,
-.overlay__content a {
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: 500;
-	text-decoration: none;
-}
-
-.nav__links {
-	list-style: none;
-	display: flex;
-}
-
-.nav__links li {
-	padding: 0px 20px;
-}
-
-.nav__links li a {
-	transition: 0.2s ease-in;
-	color: rgb(255, 255, 255);
-	text-decoration: none;
-}
-
-.nav__links li a:hover {
-	color: var(--red_color);
-}
-
-.nb {
-	color: white;
-	padding: 9px 25px;
-	background-color: var(--red_color);
-	border: none;
-	border-radius: 50px;
-	cursor: pointer;
-	transition: 0.2s ease-in;
-	border: 1px solid var(--red_color);
-}
-
-.nb:hover {
-	background: rgb(42, 36, 36);
-	border-radius: 50px;
-	border: 1px solid var(--red_color);
-	color: var(--red_color);
-}
-
-.link:link {
-	text-decoration: underline;
-	color: var(--red_color);
-}
-
-.link:visited {
-	text-decoration: underline;
-	color: var(--red_color);
-}
-
-body {
-	background: rgb(0, 0, 0);
-	background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(32, 28, 31, 1) 50%, rgba(0, 0, 0, 1) 100%);
-	text-align: center;
-	color: white;
-}
+/* delete-account css - levminer.com*/
 
 footer {
-	color: var(--red_color);
+	color: var(--ns_red);
 	width: 100%;
 	position: relative;
 	right: 0;
@@ -97,9 +12,9 @@ footer {
 }
 
 .but {
-	background: var(--red_color);
+	background: var(--ns_red);
 	border-radius: 28px;
-	border: 1px solid var(--red_color);
+	border: 1px solid var(--ns_red);
 	cursor: pointer;
 	color: white;
 	font-family: Arial;
@@ -110,8 +25,8 @@ footer {
 }
 .but:hover {
 	background: rgb(42, 36, 36);
-	border: 1px solid var(--red_color);
-	color: var(--red_color);
+	border: 1px solid var(--ns_red);
+	color: var(--ns_red);
 }
 
 .one {
@@ -155,7 +70,7 @@ footer {
 }
 
 #h11 {
-	color: var(--red_color);
+	color: var(--ns_red);
 	font-size: 50px;
 	padding: 5px;
 }
@@ -166,7 +81,7 @@ footer {
 }
 
 #h21 {
-	color: var(--red_color);
+	color: var(--ns_red);
 	font-size: 40px;
 	padding: 5px;
 }
@@ -179,7 +94,7 @@ footer {
 u {
 	padding: 5px;
 	font-size: 20px;
-	color: var(--red_color);
+	color: var(--ns_red);
 	text-decoration: underline;
 }
 
@@ -206,9 +121,9 @@ h3 {
 }
 
 .input {
-	background: var(--red_color);
+	background: var(--ns_red);
 	border-radius: 28px;
-	border: 1px solid var(--red_color);
+	border: 1px solid var(--ns_red);
 	cursor: pointer;
 	color: white;
 	font-family: Arial;
@@ -216,12 +131,12 @@ h3 {
 	padding: 16px 31px;
 	text-decoration: none;
 	transition: 0.2s ease-in;
-	width: 150px;
+	width: 220px;
 }
 .input:hover {
 	background: rgb(42, 36, 36);
-	border: 1px solid var(--red_color);
-	color: var(--red_color);
+	border: 1px solid var(--ns_red);
+	color: var(--ns_red);
 }
 
 input {
