@@ -1,6 +1,5 @@
-let api = () => {
-	let save_confirm = confirm("Are you sure you want to save the statistics?")
-
+const api = () => {
+	const save_confirm = confirm("Are you sure you want to save the statistics?")
 	if (save_confirm == true) {
 		if (supporter == true) {
 			if (max_statistics > saved_statistics) {
@@ -9,12 +8,17 @@ let api = () => {
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ results, id }),
+					body: JSON.stringify({ results, id, date }),
 				}
 
-				fetch("/api/save-statistics", options).then((res) => {
-					console.log(res)
-				})
+				fetch("/api/save-statistics", options)
+					.then((res) => {
+						return console.log(res)
+					})
+					.catch((err) => {
+						console.log(err)
+						alert("The statistic could not be saved! Failed to connect to the API! Please try again later!")
+					})
 
 				alert(
 					"The statistic was saved successfully! You can view it at your dashboard! At your dashboard you can view all of your saved statistics!"
@@ -28,9 +32,7 @@ let api = () => {
 				window.open("https://www.patreon.com/levminer")
 			}
 		} else if (supporter == false) {
-			alert(
-				"The statistic could not be saved! This is a paid feature! You will be redirected to my Patreon page and you can buy this feature!"
-			)
+			alert("The statistic could not be saved! This is a paid feature! You will be redirected to my Patreon page and you can buy this feature!")
 			window.open("https://www.patreon.com/levminer")
 		} else {
 			alert(

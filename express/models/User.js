@@ -28,6 +28,9 @@ const UserSchema = new mongoose.Schema({
 	saved_statistics: {
 		type: Array,
 	},
+	saved_dates: {
+		type: Array,
+	},
 	date: {
 		type: Date,
 		default: Date.now,

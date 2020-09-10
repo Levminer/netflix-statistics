@@ -5,6 +5,7 @@ const passport = require("passport")
 const flash = require("connect-flash")
 const session = require("express-session")
 const helmet = require("helmet")
+const path = require("path")
 
 // exports
 const Model = require("./models/User")
@@ -15,7 +16,8 @@ require("dotenv").config("./.env")
 const app = express()
 const port = process.env.PORT_ || 8080
 
-const version = "2.4.2"
+// partials
+const version = "2.5.0"
 const server = process.env.SERVER_
 const node = process.env.NODE_
 
@@ -23,6 +25,7 @@ app.locals.version = version
 app.locals.server = server
 app.locals.node = node
 
+// helmet
 app.use(
 	helmet({
 		contentSecurityPolicy: false,
@@ -71,7 +74,7 @@ app.use((req, res, next) => {
 
 // express middlewares
 app.use(express.json({ limit: "1mb" }))
-app.use(express.static(__dirname + "/views"))
+app.use(express.static(path.join(__dirname, "/views")))
 
 // external routes
 app.use("/", require("./routes/dashboard.js"))
@@ -80,7 +83,7 @@ app.use("/account", require("./routes/account.js"))
 // routes
 app.get("/", (req, res) => {
 	res.header("Content-Security-Policy", "script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com")
-	res.header("Feature-Policy", "none")
+	res.header("Permissions-Policy", "none")
 	res.render("index", {})
 })
 
@@ -118,9 +121,10 @@ app.get("/dashboard/delete-account", ensureAuthenticated, (req, res) => {
 
 // api
 app.post("/api/save-statistics", ensureAuthenticated, (req, res) => {
-	let body = req.body
-	let id = body.id
-	let statistics = body.results
+	const body = req.body
+	const id = body.id
+	const statistics = body.results
+	const date = body.date
 
 	Model.findOneAndUpdate({ _id: id }, { $push: { saved_statistics: statistics } }, (err) => {
 		if (err) {
@@ -130,12 +134,20 @@ app.post("/api/save-statistics", ensureAuthenticated, (req, res) => {
 		}
 	})
 
+	Model.findOneAndUpdate({ _id: id }, { $push: { saved_dates: date } }, (err) => {
+		if (err) {
+			console.log(err)
+		} else {
+			console.log("Date uploaded succesfully!")
+		}
+	})
+
 	res.end()
 })
 
 app.post("/api/delete-account", ensureAuthenticated, (req, res) => {
-	let body = req.body
-	let id = body.id
+	const body = req.body
+	const id = body.id
 
 	Model.findByIdAndDelete(id, (err) => {
 		if (err) {
@@ -148,7 +160,6 @@ app.post("/api/delete-account", ensureAuthenticated, (req, res) => {
 	res.end()
 })
 
-// Error
 app.use((req, res, next) => {
 	res.status(404).render("404", {})
 })

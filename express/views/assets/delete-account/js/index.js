@@ -1,8 +1,8 @@
-let start = () => {
-	let input_name = document.getElementById("input_name").value
-	let input_id = document.getElementById("input_id").value
+const start = () => {
+	const input_name = document.getElementById("input_name").value
+	const input_id = document.getElementById("input_id").value
 
-	let kill = confirm("Are you sure? This can not be undone!")
+	const kill = confirm("Are you sure? This can not be undone!")
 
 	if (kill == true) {
 		if (name == input_name && id == input_id) {
@@ -16,9 +16,14 @@ let start = () => {
 				body: JSON.stringify({ id }),
 			}
 
-			fetch("/api/delete-account", options).then((res) => {
-				console.log(res)
-			})
+			fetch("/api/delete-account", options)
+				.then((res) => {
+					return console.log(res)
+				})
+				.catch((err) => {
+					console.log(err)
+					alert("The statistic could not be saved! Failed to connect to the API! Please try again later!")
+				})
 
 			window.location.replace("/account/logout")
 		} else {

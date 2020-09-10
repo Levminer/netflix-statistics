@@ -26,6 +26,7 @@
 			let max_statistics = <%= user.max_statistics %>
 
 			let saved_statistics = <%- JSON.stringify(user.saved_statistics)%>
+			let saved_dates = <%- JSON.stringify(user.saved_dates)%>
 		</script>
 		<!-- js -->
 		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
@@ -33,6 +34,7 @@
 		<script defer src="../assets/load-statistics/js/index.js"></script>
 		<!-- css -->
 		<link rel="stylesheet" href="../assets/load-statistics/css/index.css" />
+		<link rel="stylesheet" href="../partials/partials.css" />
 		<!-- analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173567015-1"></script>
 		<script>

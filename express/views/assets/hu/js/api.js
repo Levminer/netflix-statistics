@@ -1,6 +1,5 @@
-let api = () => {
-	let save_confirm = confirm("Biztos el akarod menteni a feltöltött statisztikát?")
-
+const api = () => {
+	const save_confirm = confirm("Biztos el akarod menteni a feltöltött statisztikát?")
 	if (save_confirm == true) {
 		if (supporter == true) {
 			if (max_statistics > saved_statistics) {
@@ -11,11 +10,14 @@ let api = () => {
 					},
 					body: JSON.stringify({ results, id }),
 				}
-
-				fetch("/api/save-statistics", options).then((res) => {
-					console.log(res)
-				})
-
+				fetch("/api/save-statistics", options)
+					.then((res) => {
+						return console.log(res)
+					})
+					.catch((err) => {
+						console.log(err)
+						alert("A statisztika nem lett elmentve! Nem sikerült csatlakozni az API-hoz! Kérlek próbálkozz késöbb!")
+					})
 				alert(
 					"A statisztika sikeresen el lett metve! Már láthatod is a vezérlőpultodon! A vezérlőpulton meg tudod nézni az összes elmentett statisztikád!"
 				)
