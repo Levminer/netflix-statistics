@@ -1,20 +1,29 @@
+let state
 let data = []
-let input = document.querySelector("#input")
-let state = 0
+let date
 
-let handlefiles = (files) => {
+const input = document.querySelector("#input")
+
+const handlefiles = (files) => {
+	// check for reupload
 	if (state == 1) {
-		let restart_confirm = confirm(
+		const restart_confirm = confirm(
 			"Biztos fel akarsz tölteni egy új statisztikát? Ki akarod törölni a feltöltött statisztikát és feltölteni egy újat?"
 		)
-
 		if (restart_confirm == true) {
 			location.reload()
 		} else {
 			return
 		}
 	}
+	// get date
+	files = event.target.files
+	for (const file of files) {
+		date = new Date(file.lastModified)
+		console.log(date)
+	}
 
+	// read file
 	if (window.FileReader) {
 		getastext(files[0])
 		input.innerText = "Fájl sikeresen feltöltve"
@@ -24,33 +33,33 @@ let handlefiles = (files) => {
 	}
 }
 
-let getastext = (fileToRead) => {
-	let reader = new FileReader()
+const getastext = (fileToRead) => {
+	const reader = new FileReader()
 	reader.onload = loadhandler
 	reader.onerror = errorhandler
 	reader.readAsText(fileToRead)
 }
 
-let loadhandler = (event) => {
-	let csv = event.target.result
+const loadhandler = (event) => {
+	const csv = event.target.result
 	processdata(csv)
 }
 
-let errorhandler = (evt) => {
+const errorhandler = (evt) => {
 	if (evt.target.error.name == "NotReadableError") {
 		alert("Nem sikerült feltölteni a fájlt! Rossz vagy sérült fájlt töltöttél fel!")
 	}
 }
 
-let processdata = (csv) => {
+const processdata = (csv) => {
 	// remove double qoutes
-	let pre_data1 = csv.replace(/\"/g, "")
+	const pre_data1 = csv.replace(/"/g, "")
 
 	// new line
-	let pre_data2 = pre_data1.replace(/\,/g, "\n")
+	const pre_data2 = pre_data1.replace(/,/g, "\n")
 
 	// make the array
-	let pre_data3 = pre_data2.split(/\n/)
+	const pre_data3 = pre_data2.split(/\n/)
 	while (pre_data3.length) {
 		data.push(pre_data3.shift())
 	}
@@ -62,7 +71,7 @@ let processdata = (csv) => {
 	console.log(data.length)
 	console.log(data)
 
-	//remove dates and blanks (english dates)
+	// remove dates and blanks (english dates)
 	data = data.filter((item) => {
 		return item.indexOf("1/") !== 0
 	})
@@ -111,7 +120,7 @@ let processdata = (csv) => {
 		return item.indexOf("12/") !== 0
 	})
 
-	//remove dates and blanks (not english dates)
+	// remove dates and blanks (not english dates)
 	data = data.filter((item) => {
 		return item.indexOf("2016.") !== 0
 	})
@@ -137,15 +146,14 @@ let processdata = (csv) => {
 	})
 
 	// remove empty elements
-	data = data.filter(function (item) {
+	data = data.filter((item) => {
 		return item.indexOf(" ") !== 0
 	})
 
-	//remove last blank
+	// remove last blank
 	data.splice(-1, 1)
 
 	console.log("After remove dates and blanks!")
-
 	console.log(data.length)
 	console.log(data)
 
