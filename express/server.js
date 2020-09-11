@@ -17,7 +17,7 @@ const app = express()
 const port = process.env.PORT_ || 8080
 
 // partials
-const version = "2.5.0"
+const version = "2.5.1"
 const server = process.env.SERVER_
 const node = process.env.NODE_
 
@@ -82,7 +82,10 @@ app.use("/account", require("./routes/account.js"))
 
 // routes
 app.get("/", (req, res) => {
-	res.header("Content-Security-Policy", "script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com")
+	res.header(
+		"Content-Security-Policy",
+		"script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ajax.cloudflare.com"
+	)
 	res.header("Permissions-Policy", "none")
 	res.render("index", {})
 })
