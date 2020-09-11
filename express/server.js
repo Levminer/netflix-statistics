@@ -82,7 +82,10 @@ app.use("/account", require("./routes/account.js"))
 
 // routes
 app.get("/", (req, res) => {
-	res.header("Content-Security-Policy", "script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com")
+	res.header(
+		"Content-Security-Policy",
+		"script-src 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ajax.cloudflare.com"
+	)
 	res.header("Permissions-Policy", "none")
 	res.render("index", {})
 })
