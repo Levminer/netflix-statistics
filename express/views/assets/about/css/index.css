@@ -71,6 +71,7 @@ footer {
 }
 
 .u {
+	transition: 0.2s ease-in;
 	cursor: pointer;
 	padding: 5px;
 	font-size: 20px;
@@ -84,6 +85,7 @@ footer {
 }
 
 .ver:link {
+	transition: 0.2s ease-in;
 	text-decoration: underline;
 	color: var(--ns_red);
 }

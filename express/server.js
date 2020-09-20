@@ -17,7 +17,7 @@ const app = express()
 const port = process.env.PORT_ || 8080
 
 // partials
-const version = "2.5.1"
+const version = "2.5.2"
 const server = process.env.SERVER_
 const node = process.env.NODE_
 
