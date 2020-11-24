@@ -16,35 +16,11 @@
 		<meta name="description" content="Netflix Statistics Hungarian" />
 		<title>Netflix Statistics</title>
 		<meta charset="UTF-8" />
-		<!-- ejs -->
-		<script>
-			let id
-			let supporter
-			let max_statistics
-			let saved_statistcs
-
-			<% if (typeof user != "undefined") { %>
-				id = "<%= user._id %>"
-			<% } %>
-
-			<% if (typeof user != "undefined") { %>
-				supporter = <%= user.supporter %>
-			<% } %>
-
-			<% if (typeof user != "undefined") { %>
-				max_statistics = <%= user.max_statistics %>
-			<% } %>
-
-			<% if (typeof user != "undefined") { %>
-				saved_statistics = <%= user.saved_statistics.length %>
-			<% } %>
-		</script>
 		<!-- js -->
 		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
 		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
 		<script defer src="./assets/hu/js/convert.js"></script>
 		<script defer src="./assets/hu/js/index.js"></script>
-		<script defer src="./assets/hu/js/api.js"></script>
 		<!-- css -->
 		<link rel="stylesheet" href="./assets/hu/css/index.css" />
 		<link rel="stylesheet" href="./partials/partials.css" />
@@ -61,7 +37,16 @@
 		</script>
 	</head>
 	<body>
-		<%- include("partials/navbar.ejs") %>
+		<header>
+			<a class="logo" href="./index.html">Netflix Statistics</a>
+			<nav>
+				<ul class="nav__links">
+					<li><a href="./en.html">English</a></li>
+					<li><a href="./hu.html">Magyar</a></li>
+				</ul>
+			</nav>
+			<a class="nb" target="_blank" href="https://www.levminer.com">Website</a>
+		</header>
 
 		<div class="main">
 			<div class="one">
@@ -130,12 +115,18 @@
 					<canvas id="chart" style="position: relative; height: 1000px; width: 1500px"></canvas>
 				</div>
 
-				<h2 id="h21">Törlés & Mentés</h2>
-				<p id="p3">Itt tudod kitörölni vagy elmenteni a feltöltött staitisztikád.</p>
+				<h2 id="h21">Törlés</h2>
+				<p id="p3">Itt tudod kitörölni feltöltött staitisztikád.</p>
 				<button class="but" id="b1" onclick="reload()">Statisztika törlése</button>
-				<button class="but" id="b2" onclick="api()">Statisztika mentése</button>
 			</div>
 		</div>
-		<%- include("partials/footer.ejs") %>
+
+		<footer id="foo">
+			<h3>
+				Created by: <a class="link" target="_blank" href="https://www.levminer.com">Levminer</a> -
+				<a class="link" href="./about.html">Netflix Statistics 2.6.0</a> - Source code:
+				<a class="link" target="_blank" href="https://github.com/Levminer/netflix-statistics">GitHub</a>
+			</h3>
+		</footer>
 	</body>
 </html>

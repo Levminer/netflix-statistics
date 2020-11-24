@@ -8,12 +8,11 @@
 
 # Sample data
 
--   If you want to test the site just download the sample statistics. [Link](https://cdn.levminer.com/zip/netflixstatistics/data.zip)
+-   If you want to test the site just download the sample statistics from here: [Link](https://cdn.levminer.com/zip/netflixstatistics/data.zip)
 
 # Links
 
 -   Website [Link](https://netflixstatistics.levminer.com)
--   Patreon [Link](https://patreon.com/levminer)
 -   PayPal [Link](https://paypal.me/levminer)
 
 # JavaScript libraries used

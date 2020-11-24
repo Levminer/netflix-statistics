@@ -1,0 +1,135 @@
+/* vars */
+:root {
+	--ns_red: rgb(222, 10, 10);
+	--ns_gray: rgb(42, 36, 36);
+}
+
+/* selection */
+::selection {
+	color: var(--ns_red);
+	background: white;
+}
+
+/* all */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* body */
+body {
+	background: rgb(0, 0, 0);
+	background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(32, 28, 31, 1) 50%, rgba(0, 0, 0, 1) 100%);
+	color: white;
+}
+
+/* nav */
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 10%;
+	font-size: 20px;
+}
+
+.logo {
+	cursor: pointer;
+	color: var(--ns_red);
+	text-decoration: none;
+	font-weight: bolder;
+	transition: 0.2s ease-in;
+}
+
+.logo:hover {
+	cursor: pointer;
+	color: white;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+.nav__links a,
+.nb,
+.overlay__content a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.nav__links {
+	list-style: none;
+	display: flex;
+}
+
+.nav__links li {
+	padding: 0px 20px;
+}
+
+.nav__links li a {
+	transition: 0.2s ease-in;
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+
+.nav__links li a:hover {
+	color: var(--ns_red);
+}
+
+.nb {
+	color: white;
+	padding: 9px 25px;
+	background-color: var(--ns_red);
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: 0.2s ease-in;
+	border: 1px solid var(--ns_red);
+}
+
+.nb:hover {
+	background: rgb(42, 36, 36);
+	border-radius: 50px;
+	border: 1px solid var(--ns_red);
+	color: var(--ns_red);
+}
+
+/* links */
+.link:link {
+	text-decoration: underline;
+	color: var(--ns_red);
+	transition: 0.2s ease-in;
+}
+
+.link:hover {
+	text-decoration: underline dashed !important;
+	color: white !important;
+}
+
+.link:visited {
+	text-decoration: underline;
+	color: var(--ns_red);
+}
+
+/* alert */
+.popup {
+	padding: 15px;
+	background-color: var(--ns_red);
+	color: white;
+	text-align: center;
+}
+
+.popup-close {
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.popup-close:hover {
+	color: var(--ns_gray);
+}
