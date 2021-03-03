@@ -36,7 +36,7 @@ const start = () => {
 	const title = chart_data_1.length
 
 	// calculate statitics
-	const watchtime_minute = Math.floor(data.length * 50)
+	const watchtime_minute = Math.floor(data.length * 45)
 	const watchtime_hour = Math.floor(watchtime_minute / 60)
 	const watchtime_day = Math.floor(watchtime_hour / 24)
 

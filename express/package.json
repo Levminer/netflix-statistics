@@ -1,6 +1,6 @@
 {
 	"name": "netflix-statistics",
-	"version": "2.6.0",
+	"version": "2.6.1",
 	"description": "Netflix Statistics",
 	"main": "server.js",
 	"scripts": {
@@ -8,16 +8,16 @@
 		"dev": "nodemon server.js"
 	},
 	"author": "Levminer",
-	"license": "CC-BY-SA-4.0",
+	"license": "MIT",
 	"homepage": "https://github.com/Levminer/netflix-statistics#readme",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
 		"connect-flash": "^0.1.1",
-		"ejs": "^3.1.5",
+		"ejs": "^3.1.6",
 		"express": "^4.17.1",
 		"express-ejs-layouts": "^2.5.0",
 		"express-session": "^1.17.1",
-		"helmet": "^4.0.0",
+		"helmet": "^4.4.1",
 		"mongoose": "^5.10.6",
 		"passport": "^0.4.1",
 		"passport-local": "^1.0.0"
@@ -26,14 +26,14 @@
 		"dotenv": "^8.2.0",
 		"eslint": "^7.9.0",
 		"eslint-config-node": "^4.1.0",
-		"eslint-config-prettier": "^6.11.0",
+		"eslint-config-prettier": "^6.15.0",
 		"eslint-config-promise": "^2.0.2",
 		"eslint-config-standard": "^14.1.1",
 		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-prettier": "^3.1.4",
-		"eslint-plugin-promise": "^4.2.1",
-		"eslint-plugin-standard": "^4.0.1",
-		"nodemon": "^2.0.4",
+		"eslint-plugin-prettier": "^3.3.1",
+		"eslint-plugin-promise": "^4.3.1",
+		"eslint-plugin-standard": "^4.1.0",
+		"nodemon": "^2.0.7",
 		"prettier": "^2.1.2"
 	}
 }
