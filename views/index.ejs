@@ -32,30 +32,16 @@
 		</script>
 	</head>
 	<body>
-		<header>
-			<a class="logo" href="./index.html">Netflix Statistics</a>
-			<nav>
-				<ul class="nav__links">
-					<li><a href="./en.html">English</a></li>
-					<li><a href="./hu.html">Magyar</a></li>
-				</ul>
-			</nav>
-			<a class="nb" target="_blank" href="https://www.netflix.com/viewingactivity">Statistics</a>
-		</header>
+		<%- include("partials/navbar.ejs") %>
 
 		<div class="one">
 			<h1 id="h11">Netflix Statistics</h1>
 			<p id="p1">Please choose language! / Kérlek válassz nyelvet!</p>
-			<a id="but" href="./en.html">English</a>
-			<a id="but" href="./hu.html">Magyar</a>
+			<a id="but" href="/en">English</a>
+			<a id="but" href="/hu">Magyar</a>
+			<p id="p2"><a class="link" href="./dashboard">Dashboard</a></p>
 		</div>
 
-		<footer id="foo">
-			<h3>
-				Created by: <a class="link" target="_blank" href="https://www.levminer.com">Levminer</a> -
-				<a class="link" href="./about.html">Netflix Statistics 2.6.1</a> - Source code:
-				<a class="link" target="_blank" href="https://github.com/Levminer/netflix-statistics">GitHub</a>
-			</h3>
-		</footer>
+		<%- include("partials/footer.ejs") %>
 	</body>
 </html>
