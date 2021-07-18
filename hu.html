@@ -11,18 +11,18 @@
  Created by: https://www.levminer.com - Source code: https://github.com/Levminer/netflix-statistics
 	-->
 	<head>
-		<link rel="shortcut icon" href="./assets/en/img/img_32.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="./assets/hu/img/img_32.ico" type="image/x-icon" />
 		<meta name="viewport" content="width=1024" />
-		<meta name="description" content="Netflix Statistics English" />
+		<meta name="description" content="Netflix Statistics Hungarian" />
 		<title>Netflix Statistics</title>
 		<meta charset="UTF-8" />
 		<!-- js -->
 		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
 		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
-		<script defer src="./assets/en/js/convert.js"></script>
-		<script defer src="./assets/en/js/index.js"></script>
+		<script defer src="./assets/hu/js/convert.js"></script>
+		<script defer src="./assets/hu/js/index.js"></script>
 		<!-- css -->
-		<link rel="stylesheet" href="./assets/en/css/index.css" />
+		<link rel="stylesheet" href="./assets/hu/css/index.css" />
 		<link rel="stylesheet" href="./partials/partials.css" />
 		<!-- analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173567015-1"></script>
@@ -52,80 +52,78 @@
 			<div class="one">
 				<h1 id="h11">Netflix Statistics</h1>
 				<p id="p1">
-					Wondering how much time you spent watching Netflix in your life so far? <br />
-					If you want to know you have to follow the instructions!
+					Kiváncsi vagy hogy eddig mennyi időt töltöttél az életedből netflixezéssel? <br />
+					Ha tudni szeretnéd nincs is más dolgod mint hogy követed a használati utasítást!
 				</p>
-				<h2 id="h21">Instructions</h2>
+				<h2 id="h21">Használat</h2>
 				<p id="p2">
-					1. First you need to download your statistics from your Netflix profile.
+					1. Először is le kell töltened a Netflix profilodról a statisztikáidat.
 					<br />
-					<a class="link" target="_blank" href="https://help.netflix.com/en/node/101917">(Written help)</a>
-					<a class="link" target="_blank" href="https://www.netflix.com/viewingactivity">Link if your logged in</a>
-					<a class="link" target="_blank" href="../assets/en/vid/vid_en.mp4">(Video help)</a>
+					<a class="link" target="_blank" href="https://help.netflix.com/en/node/101917">Írásos segítség</a>
+					<a class="link" target="_blank" href="https://www.netflix.com/viewingactivity">Link ha be vagy jelentkezve</a>
 					<br />
-					2. Select the file you downloaded below. <br />
-					3. If you did everything right just scroll down and you can already see the stats.
+					2. Lentebb válaszd ki a fájlt amit letöltöttél. <br />
+					3. Ha mindent jól csináltál csak görgess lejjebb és már látod is a statisztikákat.
 				</p>
-				<h2 id="h21">Choose The File</h2>
+				<h2 id="h21">Fájl Kiválasztása</h2>
 				<input type="file" class="file" id="file" onchange="handlefiles(this.files)" accept=".csv" />
 				<button type="button" class="input" id="input" onclick="document.getElementById('file').click()" class="button red">
-					Choose a file
+					Válassz egy fájlt
 				</button>
 			</div>
 
 			<div class="two">
-				<h1 id="h11">Viewing Statistics</h1>
-				<p id="p3">Here are your Netflix stats so far. I think you were surprised.</p>
-				<h2 id="h21">Viewed Titles:</h2>
+				<h1 id="h11">Megtekintési Statisztika</h1>
+				<p id="p3">Íme az eddigi Netflix statisztikád. Szerintem meglepődtél.</p>
+				<h2 id="h21">Megtekintett Címek:</h2>
 				<h3 id="h31" class="counter">0</h3>
-				<h2>Titles</h2>
-				<h2 id="h21">Time Spent:</h2>
+				<h2>Cím</h2>
+				<h2 id="h21">Eddig Eltöltött Idő:</h2>
 				<div class="grid">
 					<h3 id="h32" class="counter">0</h3>
 					<h3 id="h33" class="counter">0</h3>
 					<h3 id="h34" class="counter">0</h3>
-					<h2>In minutes</h2>
-					<h2>In hours</h2>
-					<h2>In days</h2>
+					<h2>Percben</h2>
+					<h2>Órában</h2>
+					<h2>Napban</h2>
 				</div>
 			</div>
 
 			<div class="three">
-				<h1 id="h11">Favourite Statistics</h1>
-				<p id="p3">Here are your favourite Netflix show stats. Just don't watch one more episode.</p>
-				<h2 id="h21">Most Viewed Title:</h2>
+				<h1 id="h11">Kedvenc Statisztika</h1>
+				<p id="p3">Íme az eddigi Netflix statisztikád. Csak ne nézz meg mégegy részt.</p>
+				<h2 id="h21">Legtöbbet Megtekintett Cím:</h2>
 				<h3 id="h35" class="counter">0</h3>
-				<h2>Favourite title</h2>
-				<h2 id="h21">Time Spent:</h2>
+				<h2>Kedvenc cím</h2>
+				<h2 id="h21">Eltöltött Idő:</h2>
 				<div class="grid">
 					<h3 id="h36" class="counter">0</h3>
 					<h3 id="h37" class="counter">0</h3>
 					<h3 id="h38" class="counter">0</h3>
-					<h2>In minutes</h2>
-					<h2>Episodes</h2>
-					<h2>In hours</h2>
+					<h2>Percben</h2>
+					<h2>Epizódok</h2>
+					<h2>Órában</h2>
 				</div>
 			</div>
 
 			<div class="four">
-				<h1 id="h11">Statistics Chart</h1>
-				<p id="p3">Here is a nicely drawn chart from your statistics.</p>
+				<h1 id="h11">Statisztika Diagramm</h1>
+				<p id="p3">Itt egy szép diagramm hogy miből mennyit néztél meg.</p>
 
 				<div class="chart">
 					<canvas id="chart" style="position: relative; height: 1000px; width: 1500px"></canvas>
 				</div>
 
-				<h2 id="h21">Clear & Save</h2>
-				<p id="p3">You can clear or save your uploaded statistics here.</p>
-				<button class="but" id="b1" onclick="reload()">Clear statistics</button>
-				<button class="but" id="b2" onclick="api()">Save statistics</button>
+				<h2 id="h21">Törlés</h2>
+				<p id="p3">Itt tudod kitörölni feltöltött staitisztikád.</p>
+				<button class="but" id="b1" onclick="reload()">Statisztika törlése</button>
 			</div>
 		</div>
 
 		<footer id="foo">
 			<h3>
 				Created by: <a class="link" target="_blank" href="https://www.levminer.com">Levminer</a> -
-				<a class="link" href="./about.html">Netflix Statistics 2.6.1</a> - Source code:
+				<a class="link" href="./about.html">Netflix Statistics 2.6.2</a> - Source code:
 				<a class="link" target="_blank" href="https://github.com/Levminer/netflix-statistics">GitHub</a>
 			</h3>
 		</footer>
