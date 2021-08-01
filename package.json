@@ -1,13 +1,13 @@
 {
-"name": "authme",
-"version": "2.6.0",
-"description": "A simple 2FA app for desktop built with Electron and Node.js.",
-"author": "Levminer",
-"license": "MIT",
-"scripts": {
-  "build:tw": "tailwindcss build -i src/tailwind.scss -o src/tailwind.css -c .tailwindrc.js --minify",
-  "watch:tw": "tailwindcss build -i src/tailwind.scss -o src/tailwind.css -c .tailwindrc.js --minify --watch"
-},
+  "name": "authme",
+  "version": "2.6.0",
+  "description": "A simple 2FA app for desktop built with Electron and Node.js.",
+  "author": "Levminer",
+  "license": "MIT",
+  "scripts": {
+    "build:tw": "tailwindcss build -i src/tailwind.scss -o src/tailwind.css -c .tailwindrc.js --minify",
+    "watch:tw": "tailwindcss build -i src/tailwind.scss -o src/tailwind.css -c .tailwindrc.js --minify --watch"
+  },
   "devDependencies": {
     "autoprefixer": "^10.3.1",
     "postcss": "^8.3.6",
