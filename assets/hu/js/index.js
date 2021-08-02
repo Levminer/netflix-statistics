@@ -81,13 +81,11 @@ const start = () => {
 	const two = document.querySelector(".two")
 	const thr = document.querySelector(".three")
 	const fou = document.querySelector(".four")
-	const bu1 = document.querySelector("#b1")
 	ter.style.marginBottom = "15px"
 	foo.style.bottom = "-103px"
 	two.style.display = "block"
 	thr.style.display = "block"
 	fou.style.display = "block"
-	bu1.style.display = "inline"
 
 	// ? make random chart colors
 	const colors = []
