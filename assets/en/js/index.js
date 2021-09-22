@@ -142,8 +142,8 @@ const start = () => {
 			],
 		},
 		options: {
-			responsive: false,
-			maintainAspectRatio: false,
+			responsive: true,
+			maintainAspectRatio: true,
 		},
 	})
 }
