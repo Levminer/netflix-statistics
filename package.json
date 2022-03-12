@@ -5,8 +5,8 @@
   "author": "Levminer",
   "license": "MIT",
   "scripts": {
-    "build:tw": "tailwindcss build -i src/css/tailwind.scss -o src/css/tailwind.css -c .tailwindrc.js --minify",
-    "watch:tw": "tailwindcss build -i src/css/tailwind.scss -o src/css/tailwind.css -c .tailwindrc.js --minify --watch"
+    "build:tw": "tailwindcss build -i src/css/tailwind.scss -o src/css/tailwind.css --minify",
+    "watch:tw": "tailwindcss build -i src/css/tailwind.scss -o src/css/tailwind.css --minify --watch"
   },
   "devDependencies": {
     "tailwindcss": "^3.0.23"
