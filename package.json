@@ -1,16 +1,14 @@
 {
-  "name": "authme",
-  "version": "2.6.0",
-  "description": "A simple 2FA app for desktop built with Electron and Node.js.",
+  "name": "netflix-statistics",
+  "version": "2.0.0",
+  "description": "If you want to know how much time you spent in your life watching Netflix!",
   "author": "Levminer",
   "license": "MIT",
   "scripts": {
-    "build:tw": "tailwindcss build -i src/tailwind.scss -o src/tailwind.css -c .tailwindrc.js --minify",
-    "watch:tw": "tailwindcss build -i src/tailwind.scss -o src/tailwind.css -c .tailwindrc.js --minify --watch"
+    "build:tw": "tailwindcss build -i src/css/tailwind.scss -o src/css/tailwind.css -c .tailwindrc.js --minify",
+    "watch:tw": "tailwindcss build -i src/css/tailwind.scss -o src/css/tailwind.css -c .tailwindrc.js --minify --watch"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.1",
-    "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^3.0.23"
   }
 }

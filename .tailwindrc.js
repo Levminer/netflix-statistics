@@ -1,15 +1,10 @@
 module.exports = {
-	mode: "jit",
-	purge: {
-		enabled: true,
-		content: ["./**/*.html"],
-	},
+	content: ["./**/*.html"],
 	theme: {
 		extend: {
 			inset: {
 				"-30": "-1.875rem",
 			},
-
 			colors: {
 				gray: {
 					500: "#282828",
@@ -27,16 +22,11 @@ module.exports = {
 					gray: "#808080",
 				},
 				ns: {
-					red: "#de0a0a"
-				}
+					red: "#de0a0a",
+				},
 			},
-
 			fontFamily: {
 				sans: ["Arial", "Helvetica", "sans-serif"],
-			},
-
-			borderRadius: {
-				"2xl": "30px",
 			},
 		},
 	},
