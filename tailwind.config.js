@@ -1,10 +1,8 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ["./**/*.html"],
+	content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		extend: {
-			inset: {
-				"-30": "-1.875rem",
-			},
 			colors: {
 				gray: {
 					500: "#282828",
@@ -30,4 +28,6 @@ module.exports = {
 			},
 		},
 	},
+	plugins: [],
 }
+

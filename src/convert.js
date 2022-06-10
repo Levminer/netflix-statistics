@@ -1,11 +1,9 @@
-let data = []
-
-const input = document.querySelector("#input")
+import { createStatistics } from "./index"
 
 const CSVToArray = (strData) => {
 	// Check to see if the delimiter is defined. If not,
 	// then default to comma.
-	strDelimiter = ","
+	let strDelimiter = ","
 
 	// Create a regular expression to parse the CSV values.
 	var objPattern = new RegExp(
@@ -79,14 +77,16 @@ const CSVToArray = (strData) => {
 	return { dates, titles }
 }
 
-const loadFile = (files) => {
+export const loadFile = (event) => {
+	const input = document.querySelector("#input")
+
 	if (window.FileReader) {
 		input.innerText = "File uploaded successfully"
 		input.disabled = true
 
 		// Read file
 		const reader = new FileReader()
-		reader.readAsText(files[0])
+		reader.readAsText(event.target.files[0])
 
 		// File read successful
 		reader.onload = (event) => {
@@ -106,9 +106,7 @@ const loadFile = (files) => {
 
 const processData = (csv) => {
 	const processed = CSVToArray(csv)
-	data = processed.titles
+	let data = processed.titles
 
-	console.log(data)
-
-	createStatistics()
+	createStatistics(data)
 }

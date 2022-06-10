@@ -1,14 +1,25 @@
 {
   "name": "netflix-statistics",
-  "version": "2.0.0",
-  "description": "If you want to know how much time you spent in your life watching Netflix!",
-  "author": "Levminer",
-  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build:tw": "tailwindcss build -i src/css/tailwind.scss -o src/css/tailwind.css --minify",
-    "watch:tw": "tailwindcss build -i src/css/tailwind.scss -o src/css/tailwind.css --minify --watch"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "tailwindcss": "^3.0.23"
+    "@types/node": "^17.0.41",
+    "@types/react": "^17.0.45",
+    "autoprefixer": "^10.4.7",
+    "eslint": "8.17.0",
+    "eslint-config-next": "12.1.6",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.2"
   }
 }

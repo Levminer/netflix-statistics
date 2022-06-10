@@ -8,13 +8,13 @@ const reload = () => {
 	}
 }
 
-const titles = []
-const results = {}
-
 /**
  * Create statistics
  */
-const createStatistics = () => {
+export const createStatistics = (data) => {
+	const titles = []
+	const results = {}
+
 	// make the titles
 	for (let i = 0; i < data.length; i++) {
 		const split = data[i].split(":")
