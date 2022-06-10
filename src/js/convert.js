@@ -2,6 +2,83 @@ let data = []
 
 const input = document.querySelector("#input")
 
+const CSVToArray = (strData) => {
+	// Check to see if the delimiter is defined. If not,
+	// then default to comma.
+	strDelimiter = ","
+
+	// Create a regular expression to parse the CSV values.
+	var objPattern = new RegExp(
+		// Delimiters.
+		"(\\" +
+			strDelimiter +
+			"|\\r?\\n|\\r|^)" +
+			// Quoted fields.
+			'(?:"([^"]*(?:""[^"]*)*)"|' +
+			// Standard fields.
+			'([^"\\' +
+			strDelimiter +
+			"\\r\\n]*))",
+		"gi"
+	)
+
+	// Create an array to hold our data. Give the array
+	// a default empty first row.
+	var arrData = [[]]
+
+	// Create an array to hold our individual pattern
+	// matching groups.
+	var arrMatches = null
+
+	// Keep looping over the regular expression matches
+	// until we can no longer find a match.
+	while ((arrMatches = objPattern.exec(strData))) {
+		// Get the delimiter that was found.
+		var strMatchedDelimiter = arrMatches[1]
+
+		// Check to see if the given delimiter has a length
+		// (is not the start of string) and if it matches
+		// field delimiter. If id does not, then we know
+		// that this delimiter is a row delimiter.
+		if (strMatchedDelimiter.length && strMatchedDelimiter !== strDelimiter) {
+			// Since we have reached a new row of data,
+			// add an empty row to our data array.
+			arrData.push([])
+		}
+
+		var strMatchedValue
+
+		// Now that we have our delimiter out of the way,
+		// let's check to see which kind of value we
+		// captured (quoted or unquoted).
+		if (arrMatches[2]) {
+			// We found a quoted value. When we capture
+			// this value, unescape any double quotes.
+			strMatchedValue = arrMatches[2].replace(new RegExp('""', "g"), '"')
+		} else {
+			// We found a non-quoted value.
+			strMatchedValue = arrMatches[3]
+		}
+
+		// Now that we have our value string, let's add
+		// it to the data array.
+		arrData[arrData.length - 1].push(strMatchedValue)
+	}
+
+	arrData.splice(0, 1)
+
+	const titles = []
+	const dates = []
+
+	for (let i = 0; i < arrData.length - 1; i++) {
+		titles.push(arrData[i][0])
+		dates.push(arrData[i][1])
+	}
+
+	// Return the parsed data.
+	return { dates, titles }
+}
+
 const loadFile = (files) => {
 	if (window.FileReader) {
 		input.innerText = "File uploaded successfully"
@@ -28,112 +105,10 @@ const loadFile = (files) => {
 }
 
 const processData = (csv) => {
-	// Remove double quotes
-	const pre_data1 = csv.replace(/"/g, "")
+	const processed = CSVToArray(csv)
+	data = processed.titles
 
-	// New line
-	const pre_data2 = pre_data1.replace(/,/g, "\n")
-
-	// Make the array
-	const pre_data3 = pre_data2.split(/\n/)
-	while (pre_data3.length) {
-		data.push(pre_data3.shift())
-	}
-
-	// Remove default title and date
-	data.splice(0, 2)
-
-	// Remove dates and blanks (english dates)
-	data = data.filter((item) => {
-		return item.indexOf("1/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("2/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("3/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("4/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("5/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("6/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("7/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("8/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("9/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("10/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("11/") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("12/") !== 0
-	})
-
-	// Remove dates and blanks (not english dates)
-	data = data.filter((item) => {
-		return item.indexOf("2015.") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("2016.") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("2017.") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("2018.") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("2019.") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("2020.") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("2021.") !== 0
-	})
-
-	data = data.filter((item) => {
-		return item.indexOf("2022.") !== 0
-	})
-
-	// Remove empty elements
-	data = data.filter((item) => {
-		return item.indexOf(" ") !== 0
-	})
-
-	// Remove last blank
-	data.splice(-1, 1)
-
-	console.log("Removed dates and blanks:", data, data.length)
+	console.log(data)
 
 	createStatistics()
 }
