@@ -106,9 +106,9 @@ export const loadFile = (event) => {
 
 const processData = (csv) => {
 	const processed = CSVToArray(csv)
+
 	let data = processed.titles
+	let dates = processed.dates
 
-	console.log(processed.dates)
-
-	createStatistics(data)
+	createStatistics(data, dates)
 }

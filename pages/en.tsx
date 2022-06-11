@@ -115,6 +115,43 @@ const EN = () => {
 				</section>
 			</div>
 
+			<div className="five hidden">
+				<section className="text-white body-font bg-gray-700 w-2/3 m-auto mt-32 mb-32 rounded-2xl">
+					<div className="container mx-auto flex px-5 py-20 items-center justify-center flex-col">
+						<div className="text-center lg:w-2/3 w-full">
+							<h2 className="title-font text-4xl mb-4 font-bold text-ns-red">Your longest day on Netflix</h2>
+							<p className="leading-relaxed text-xl mb-4">You spent most of the day watching Netflix.</p>
+							<h2 className="title-font text-4xl mb-2 text-ns-red font-bold">Date</h2>
+							<h3 id="longestDay" className="leading-relaxed text-6xl font-bold">
+								0
+							</h3>
+							<p className="leading-relaxed text-xl -mt-5 font-bold">Longest Netflix day</p>
+							<h2 className="title-font text-4xl mb-2 mt-2 font-bold text-ns-red">Time spent</h2>
+							<div className="flex flex-col gap-10 justify-center md:flex-row">
+								<div className="flex flex-col">
+									<h3 id="longestDayM" className="leading-relaxed text-6xl font-bold">
+										0
+									</h3>
+									<h2 className="leading-relaxed text-xl -mt-5 font-bold">In minutes</h2>
+								</div>
+								<div className="flex flex-col">
+									<h3 id="longestDayT" className="leading-relaxed text-6xl font-bold">
+										0
+									</h3>
+									<h2 className="leading-relaxed text-xl -mt-5 font-bold">Title</h2>
+								</div>
+								<div className="flex flex-col">
+									<h3 id="longestDayH" className="leading-relaxed text-6xl font-bold">
+										0
+									</h3>
+									<h2 className="leading-relaxed text-xl -mt-5 font-bold">In Hours</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
 			<div className="four hidden">
 				<section className="text-white body-font bg-gray-700 w-2/3 m-auto mt-32 mb-32 rounded-2xl">
 					<div className="container mx-auto flex px-5 py-20 items-center justify-center flex-col">

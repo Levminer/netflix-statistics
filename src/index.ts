@@ -4,7 +4,7 @@ import { Chart } from "chart.js"
 /**
  * Create statistics
  */
-export const createStatistics = (data) => {
+export const createStatistics = (data, dates) => {
 	const titles = []
 	const results = {}
 
@@ -33,41 +33,64 @@ export const createStatistics = (data) => {
 
 	// Calculate favorite statistics
 	const max_number = Math.max(...chart_data_values)
-	console.log(max_number)
 	const max_title = chart_data_values.indexOf(max_number)
-	console.log(max_title)
 
 	const favorite_title = chart_data_names[max_title]
 	const favorite_watchtime_minute = Math.floor(max_number * 50)
 	const favorite_episodes = max_number
 	const favorite_watchtime_hour = Math.floor(favorite_watchtime_minute / 60)
 
+	// Longest day
+	let current_date = dates[0]
+	let current_date_count = 0
+
+	for (let i = 0; i < dates.length; i++) {
+		if (current_date == dates[i]) {
+			current_date_count++
+		}
+	}
+
+	for (let i = 1; i < dates.length; i++) {
+		let next_date = dates[i]
+		let next_date_count = 0
+
+		for (let j = 0; j < dates.length; j++) {
+			if (next_date == dates[j]) {
+				next_date_count++
+			}
+		}
+
+		if (next_date_count > current_date_count) {
+			current_date = next_date
+			current_date_count = next_date_count
+		}
+	}
+
+	let longest_date = new Date(current_date).toLocaleDateString()
+	let longest_date_m = current_date_count * 60
+	let longest_date_h = longest_date_m / 60
+
 	// Animated counters
-	const c1 = new CountUp("h31", 0, title_number)
-	const c2 = new CountUp("h32", 0, watchtime_minute)
-	const c3 = new CountUp("h33", 0, watchtime_hour)
-	const c4 = new CountUp("h34", 0, watchtime_day)
+	new CountUp("h31", 0, title_number).start()
+	new CountUp("h32", 0, watchtime_minute).start()
+	new CountUp("h33", 0, watchtime_hour).start()
+	new CountUp("h34", 0, watchtime_day).start()
 
 	document.getElementById("h35").textContent = favorite_title
-	const c6 = new CountUp("h36", 0, favorite_watchtime_minute)
-	const c7 = new CountUp("h37", 0, favorite_episodes)
-	const c8 = new CountUp("h38", 0, favorite_watchtime_hour)
+	new CountUp("h36", 0, favorite_watchtime_minute).start()
+	new CountUp("h37", 0, favorite_episodes).start()
+	new CountUp("h38", 0, favorite_watchtime_hour).start()
 
-	c1.start()
-	c2.start()
-	c3.start()
-	c4.start()
-	c6.start()
-	c7.start()
-	c8.start()
+	document.querySelector("#longestDay").textContent = longest_date
+	new CountUp("longestDayM", 0, longest_date_m).start()
+	new CountUp("longestDayT", 0, current_date_count).start()
+	new CountUp("longestDayH", 0, longest_date_h).start()
 
 	// Set the elements
-	const two = document.querySelector(".two")
-	const thr = document.querySelector(".three")
-	const fou = document.querySelector(".four")
-	two.style.display = "block"
-	thr.style.display = "block"
-	fou.style.display = "block"
+	document.querySelector(".two").style.display = "block"
+	document.querySelector(".three").style.display = "block"
+	document.querySelector(".four").style.display = "block"
+	document.querySelector(".five").style.display = "block"
 
 	// Random colors
 	const colors = []
@@ -104,7 +127,7 @@ export const createStatistics = (data) => {
 
 	// Remove titles with low views
 	for (let i = 0; i < chart_data_values.length; i++) {
-		if (chart_data_values[i] < 3) {
+		if (chart_data_values[i] < 5) {
 			chart_data_values.splice(i, 1)
 			chart_data_names.splice(i, 1)
 		}
