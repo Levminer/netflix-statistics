@@ -1,4 +1,4 @@
-import CountUp = require("countup.js")
+import * as CountUp from "countup.js"
 import { Chart } from "chart.js"
 
 /**
