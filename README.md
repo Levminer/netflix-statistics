@@ -1,5 +1,5 @@
 <p >
-  <img src="./src/img/img_90.png" />
+  <img src="./public/img/img_90.png" />
 </p>
 
 # Netflix Statistics

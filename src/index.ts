@@ -1,12 +1,5 @@
-/**
- * Reload page
- */
-const reload = () => {
-	const reload_confirm = confirm("Are you sure you want to clear the statistics?")
-	if (reload_confirm == true) {
-		location.reload()
-	}
-}
+import CountUp = require("countup.js")
+import { Chart } from "chart.js"
 
 /**
  * Create statistics
@@ -28,7 +21,7 @@ export const createStatistics = (data) => {
 
 	// Separate names and values
 	const chart_data_names = Object.keys(results)
-	const chart_data_values = Object.values(results)
+	const chart_data_values: number[] = Object.values(results)
 
 	// Number of titles
 	const title_number = chart_data_names.length
@@ -120,7 +113,9 @@ export const createStatistics = (data) => {
 	console.log("CHART", chart_data_names.length)
 
 	// Create the chart
-	const watchtime_chart = document.getElementById("chart").getContext("2d")
+	const watchtime_chart = <HTMLCanvasElement>document.getElementById("chart")
+	watchtime_chart.getContext("2d")
+
 	Chart.defaults.global.defaultFontColor = "white"
 
 	new Chart(watchtime_chart, {

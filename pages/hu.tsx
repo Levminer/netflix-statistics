@@ -10,7 +10,7 @@ const HU = () => {
 	return (
 		<>
 			<div className="m-auto">
-				<section className="text-white body-font bg-gray-700 w-2/3 m-auto mt-32 mb-32 rounded-2xl">
+				<section className="text-white body-font bg-gray-700 w-2/3 m-auto mt-32 mb-44 rounded-2xl">
 					<div className="container mx-auto flex px-5 py-20 items-center justify-center flex-col">
 						<div className="text-center lg:w-2/3 w-full">
 							<h1 className="title-font text-5xl mb-4 font-bold text-ns-red">Netflix Statistics</h1>
@@ -120,7 +120,7 @@ const HU = () => {
 							<h2 className="title-font text-4xl mb-4 font-bold text-ns-red">Statisztika diagramm</h2>
 							<p className="leading-relaxed text-xl mb-4">Itt egy szép diagramm hogy miből mennyit néztél meg.</p>
 							<div className="flex justify-center">
-								<canvas id="chart" className="chart"></canvas>
+								<canvas id="chart" style={{ position: "relative", height: "1000px", width: "1000px" }}></canvas>
 							</div>
 						</div>
 					</div>

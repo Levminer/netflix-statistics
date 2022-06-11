@@ -3,10 +3,10 @@ import { createStatistics } from "./index"
 const CSVToArray = (strData) => {
 	// Check to see if the delimiter is defined. If not,
 	// then default to comma.
-	let strDelimiter = ","
+	const strDelimiter = ","
 
 	// Create a regular expression to parse the CSV values.
-	var objPattern = new RegExp(
+	const objPattern = new RegExp(
 		// Delimiters.
 		"(\\" +
 			strDelimiter +
@@ -22,17 +22,17 @@ const CSVToArray = (strData) => {
 
 	// Create an array to hold our data. Give the array
 	// a default empty first row.
-	var arrData = [[]]
+	const arrData = [[]]
 
 	// Create an array to hold our individual pattern
 	// matching groups.
-	var arrMatches = null
+	let arrMatches = null
 
 	// Keep looping over the regular expression matches
 	// until we can no longer find a match.
 	while ((arrMatches = objPattern.exec(strData))) {
 		// Get the delimiter that was found.
-		var strMatchedDelimiter = arrMatches[1]
+		let strMatchedDelimiter = arrMatches[1]
 
 		// Check to see if the given delimiter has a length
 		// (is not the start of string) and if it matches
@@ -44,7 +44,7 @@ const CSVToArray = (strData) => {
 			arrData.push([])
 		}
 
-		var strMatchedValue
+		let strMatchedValue
 
 		// Now that we have our delimiter out of the way,
 		// let's check to see which kind of value we
@@ -78,7 +78,7 @@ const CSVToArray = (strData) => {
 }
 
 export const loadFile = (event) => {
-	const input = document.querySelector("#input")
+	const input: HTMLInputElement = document.querySelector("#input")
 
 	if (window.FileReader) {
 		input.innerText = "File uploaded successfully"
@@ -95,7 +95,7 @@ export const loadFile = (event) => {
 
 		// File read error
 		reader.onerror = (event) => {
-			if (evt.target.error.name == "NotReadableError") {
+			if (event.target.error.name == "NotReadableError") {
 				alert("Failed to upload the file! You uploaded a corrupted or not supported file!")
 			}
 		}
@@ -107,6 +107,8 @@ export const loadFile = (event) => {
 const processData = (csv) => {
 	const processed = CSVToArray(csv)
 	let data = processed.titles
+
+	console.log(processed.dates)
 
 	createStatistics(data)
 }
