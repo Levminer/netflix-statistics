@@ -67,8 +67,8 @@ export const createStatistics = (data, dates) => {
 	}
 
 	let longest_date = new Date(current_date).toLocaleDateString()
-	let longest_date_m = current_date_count * 60
-	let longest_date_h = longest_date_m / 60
+	let longest_date_m = current_date_count * 45
+	let longest_date_h = Math.floor(longest_date_m / 60)
 
 	// Animated counters
 	new CountUp("h31", 0, title_number).start()
