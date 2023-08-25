@@ -17,7 +17,7 @@ const CSVToArray = (strData) => {
 			'([^"\\' +
 			strDelimiter +
 			"\\r\\n]*))",
-		"gi"
+		"gi",
 	)
 
 	// Create an array to hold our data. Give the array
@@ -69,8 +69,10 @@ const CSVToArray = (strData) => {
 	const dates = []
 
 	for (let i = 0; i < arrData.length - 1; i++) {
-		titles.push(arrData[i][0])
-		dates.push(arrData[i][1])
+		if (arrData[i][0].trim() !== "") {
+			titles.push(arrData[i][0])
+			dates.push(arrData[i][1])
+		}
 	}
 
 	// Return the parsed data.
