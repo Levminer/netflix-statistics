@@ -126,10 +126,12 @@ export const createStatistics = (data, dates) => {
 	randomColors()
 
 	// Remove titles with low views
-	for (let i = 0; i < chart_data_values.length; i++) {
-		if (chart_data_values[i] < 5) {
-			chart_data_values.splice(i, 1)
+	for (let i = 0; i < chart_data_names.length; i++) {
+		if (chart_data_values[i] < 10) {
 			chart_data_names.splice(i, 1)
+			chart_data_values.splice(i, 1)
+
+			i--
 		}
 	}
 
