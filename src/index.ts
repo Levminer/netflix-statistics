@@ -1,4 +1,4 @@
-import * as CountUp from "countup.js"
+import { CountUp, CountUpOptions } from "countup.js"
 import { Chart } from "chart.js"
 
 /**
@@ -66,31 +66,30 @@ export const createStatistics = (data, dates) => {
 		}
 	}
 
-	let longest_date = new Date(current_date).toLocaleDateString()
+	let longest_date = new Date(current_date).toLocaleDateString("hu-HU")
 	let longest_date_m = current_date_count * 45
 	let longest_date_h = Math.floor(longest_date_m / 60)
 
+	let countOptions: CountUpOptions = {
+		enableScrollSpy: true,
+		scrollSpyOnce: true,
+	}
+
 	// Animated counters
-	new CountUp("h31", 0, title_number).start()
-	new CountUp("h32", 0, watchtime_minute).start()
-	new CountUp("h33", 0, watchtime_hour).start()
-	new CountUp("h34", 0, watchtime_day).start()
+	new CountUp("titles", title_number, countOptions).start()
+	new CountUp("titlesM", watchtime_minute, countOptions).start()
+	new CountUp("titlesH", watchtime_hour, countOptions).start()
+	new CountUp("titlesD", watchtime_day, countOptions).start()
 
 	document.getElementById("h35").textContent = favorite_title
-	new CountUp("h36", 0, favorite_watchtime_minute).start()
-	new CountUp("h37", 0, favorite_episodes).start()
-	new CountUp("h38", 0, favorite_watchtime_hour).start()
+	new CountUp("h36", favorite_watchtime_minute, countOptions).start()
+	new CountUp("h37", favorite_episodes, countOptions).start()
+	new CountUp("h38", favorite_watchtime_hour, countOptions).start()
 
 	document.querySelector("#longestDay").textContent = longest_date
-	new CountUp("longestDayM", 0, longest_date_m).start()
-	new CountUp("longestDayT", 0, current_date_count).start()
-	new CountUp("longestDayH", 0, longest_date_h).start()
-
-	// Set the elements
-	document.querySelector(".two").style.display = "block"
-	document.querySelector(".three").style.display = "block"
-	document.querySelector(".four").style.display = "block"
-	document.querySelector(".five").style.display = "block"
+	new CountUp("longestDayM", longest_date_m, countOptions).start()
+	new CountUp("longestDayT", current_date_count, countOptions).start()
+	new CountUp("longestDayH", longest_date_h, countOptions).start()
 
 	// Random colors
 	const colors = []
