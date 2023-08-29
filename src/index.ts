@@ -91,6 +91,11 @@ export const createStatistics = (data, dates) => {
 	new CountUp("longestDayT", current_date_count, countOptions).start()
 	new CountUp("longestDayH", longest_date_h, countOptions).start()
 
+	// Show rows
+	document.querySelector(".row1").style.display = "flex"
+	document.querySelector(".row2").style.display = "flex"
+	document.querySelector(".row3").style.display = "block"
+
 	// Random colors
 	const colors = []
 
@@ -133,8 +138,6 @@ export const createStatistics = (data, dates) => {
 			i--
 		}
 	}
-
-	console.log("CHART", chart_data_names.length)
 
 	// Create the chart
 	const watchtime_chart = <HTMLCanvasElement>document.getElementById("chart")
