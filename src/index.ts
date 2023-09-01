@@ -4,7 +4,7 @@ import { Chart } from "chart.js"
 /**
  * Create statistics
  */
-export const createStatistics = (data, dates) => {
+export const createStatistics = (data: string[], dates: string[]) => {
 	const titles = []
 	const results = {}
 
@@ -75,6 +75,42 @@ export const createStatistics = (data, dates) => {
 		scrollSpyOnce: true,
 	}
 
+	// Longest streak
+	// Remove duplicates
+	const uniqueDates = [...new Set(dates)].reverse()
+
+	const sortedDates = uniqueDates.map((dateString) => new Date(dateString))
+
+	let longestStreak = 0
+	let currentStreak = 0
+	let firstDate = null
+	let lastDate = null
+
+	function isYesterday(date1: Date, date2: Date): boolean {
+		const oneDayInMs = 1000 * 60 * 60 * 24
+		const diffInMs = date2.getTime() - date1.getTime()
+		const diffInDays = Math.round(diffInMs / oneDayInMs)
+
+		return diffInDays === 1
+	}
+
+	for (let i = 0; i < sortedDates.length; i++) {
+		const currentDate = sortedDates[i]
+		const yesterday = sortedDates[i - 1]
+
+		if (yesterday && isYesterday(yesterday, currentDate)) {
+			currentStreak++
+		} else {
+			currentStreak = 0
+		}
+
+		if (currentStreak > longestStreak) {
+			longestStreak = currentStreak
+			firstDate = sortedDates[i - currentStreak]
+			lastDate = currentDate
+		}
+	}
+
 	// Animated counters
 	new CountUp("titles", title_number, countOptions).start()
 	new CountUp("titlesM", watchtime_minute, countOptions).start()
@@ -90,6 +126,10 @@ export const createStatistics = (data, dates) => {
 	new CountUp("longestDayM", longest_date_m, countOptions).start()
 	new CountUp("longestDayT", current_date_count, countOptions).start()
 	new CountUp("longestDayH", longest_date_h, countOptions).start()
+
+	new CountUp("longestStreak", longestStreak + 1, countOptions).start()
+	document.querySelector("#longestStreakS").textContent = firstDate.toLocaleDateString("hu-HU")
+	document.querySelector("#longestStreakE").textContent = lastDate.toLocaleDateString("hu-HU")
 
 	// Show rows
 	document.querySelector(".row1").style.display = "flex"

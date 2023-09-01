@@ -11,7 +11,7 @@ const EN = () => {
 			{/* hero */}
 			<div className="text-white body-font bg-gray-700 w-full m-auto rounded-2xl">
 				<div className="flex p-5 flex-col">
-					<div className="flex flex-wrap md:flex-nowrap">
+					<div className="flex flex-wrap md:flex-nowrap justify-around gap-3">
 						<div>
 							<h1 className="title-font text-5xl mb-4 font-bold text-ns-red">Netflix Statistics</h1>
 							<p className="mb-4 leading-relaxed text-xl">
@@ -133,6 +133,31 @@ const EN = () => {
 				<div className="text-white body-font bg-gray-700 w-1/2 m-auto rounded-2xl">
 					<div className="container mx-auto flex p-5 items-center justify-center flex-col">
 						<div className="w-full">
+							<h2 className="title-font text-4xl mb-2 text-ns-red font-bold">Consecutive watching days</h2>
+							<h3 id="longestStreak" className="leading-relaxed text-6xl font-bold">
+								0
+							</h3>
+							<h2 className="title-font text-4xl mb-2 mt-2 font-bold text-ns-red">Streak between</h2>
+							<div className="flex flex-col gap-10 justify-center md:flex-row">
+								<div className="flex flex-col items-center">
+									<h3 id="longestStreakS" className="leading-relaxed text-6xl font-bold">
+										0
+									</h3>
+									<h2 className="leading-relaxed text-xl -mt-5 font-bold">Start</h2>
+								</div>
+								<div className="flex flex-col items-center">
+									<h3 id="longestStreakE" className="leading-relaxed text-6xl font-bold">
+										0
+									</h3>
+									<h2 className="leading-relaxed text-xl -mt-5 font-bold">End</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="text-white body-font bg-gray-700 w-1/2 m-auto rounded-2xl">
+					<div className="container mx-auto flex p-5 items-center justify-center flex-col">
+						<div className="w-full">
 							<h2 className="title-font text-4xl mb-2 text-ns-red font-bold">Your longest Netflix day</h2>
 							<h3 id="longestDay" className="leading-relaxed text-6xl font-bold">
 								0
@@ -170,7 +195,7 @@ const EN = () => {
 						<h2 className="title-font text-4xl mb-4 font-bold text-ns-red">Statistics chart</h2>
 						<p className="leading-relaxed text-xl mb-4">Here is a nicely drawn chart from your statistics.</p>
 						<div className="flex justify-center">
-							<canvas id="chart" style={{ position: "relative", height: "1000px", width: "1000px" }}></canvas>
+							<canvas id="chart" style={{ position: "relative", height: "800px", width: "800px" }}></canvas>
 						</div>
 					</div>
 				</div>
