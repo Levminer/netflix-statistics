@@ -9,7 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"chart.js": "^2.9.4",
+		"chart.js": "^4.4.0",
 		"countup.js": "^2.7.1",
 		"next": "^12.1.0",
 		"react": "^17.0.2",

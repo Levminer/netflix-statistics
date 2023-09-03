@@ -1,5 +1,5 @@
 import { CountUp, CountUpOptions } from "countup.js"
-import { Chart } from "chart.js"
+import { Chart, registerables } from "chart.js"
 
 /**
  * Create statistics
@@ -183,7 +183,8 @@ export const createStatistics = (data: string[], dates: string[]) => {
 	const watchtime_chart = <HTMLCanvasElement>document.getElementById("chart")
 	watchtime_chart.getContext("2d")
 
-	Chart.defaults.global.defaultFontColor = "white"
+	Chart.register(...registerables)
+	Chart.defaults.color = "white"
 
 	new Chart(watchtime_chart, {
 		type: "pie",
@@ -191,7 +192,7 @@ export const createStatistics = (data: string[], dates: string[]) => {
 			labels: chart_data_names,
 			datasets: [
 				{
-					label: "numbers",
+					label: "Episode",
 					data: chart_data_values,
 					backgroundColor: colors,
 					borderWidth: 3,
@@ -200,9 +201,10 @@ export const createStatistics = (data: string[], dates: string[]) => {
 			],
 		},
 		options: {
-			responsive: true,
-			legend: {
-				display: false,
+			plugins: {
+				legend: {
+					display: false,
+				},
 			},
 		},
 	})
