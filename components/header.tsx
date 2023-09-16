@@ -10,30 +10,22 @@ const Header = () => {
 				<div className="container mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row">
 					<span className="title-font text-ns-red mb-4 flex items-center font-bold md:mb-0">
 						<Link href="/">
-							<a>
-								<img src="img/img_32.ico" alt="Netflix Statistics Logo" />
-							</a>
+							<img src="img/img_32.ico" alt="Netflix Statistics Logo" />
 						</Link>
 
-						<Link href="/">
-							<a className="ml-3 text-xl duration-200 ease-in hover:text-white">Netflix Statistics</a>
+						<Link href="/" className="ml-3 text-xl duration-200 ease-in hover:text-white">
+							Netflix Statistics
 						</Link>
 					</span>
 					<nav className="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
-						<Link href="/">
-							<a className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/" ? "link" : ""}>
-								Home
-							</a>
+						<Link href="/" className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/" ? "link" : ""}>
+							Home
 						</Link>
-						<Link href="/en">
-							<a className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/en" ? "link" : ""}>
-								English
-							</a>
+						<Link href="/en" className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/en" ? "link" : ""}>
+							English
 						</Link>
-						<Link href="/hu">
-							<a className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/hu" ? "link" : ""}>
-								Magyar
-							</a>
+						<Link href="/hu" className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/hu" ? "link" : ""}>
+							Magyar
 						</Link>
 					</nav>
 					<a className="button mt-5 md:mt-0" target="_blank" rel="noopener" href="https://www.netflix.com/viewingactivity">

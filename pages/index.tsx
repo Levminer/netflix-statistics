@@ -11,11 +11,8 @@ const Home = () => {
 						<h1 className="title-font text-ns-red mb-4 text-5xl font-bold">Netflix Statistics</h1>
 						<p className="mb-8 text-2xl leading-relaxed">Please choose language! / Kérlek válassz nyelvet!</p>
 						<div className="flex justify-center gap-3">
-							<Link href="/en">
-								<a className="button">English</a>
-							</Link>
-							<Link href="/hu">
-								<a className="button">Magyar</a>
+							<Link className="button" href="/en">
+								View you statistics
 							</Link>
 						</div>
 					</div>
@@ -26,4 +23,3 @@ const Home = () => {
 }
 
 export default Home
-
