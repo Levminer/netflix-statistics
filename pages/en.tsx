@@ -95,7 +95,7 @@ const EN = () => {
 
 				<div className="mx-auto sm:w-1/2 w-full flex p-5 flex-col space-y-3 text-white body-font bg-gray-700 rounded-2xl">
 					<div>
-						<h2 className="title-font text-4xl font-bold text-ns-red">Most viewed title</h2>
+						<h2 className="title-font text-4xl font-bold text-ns-red">Favorite title</h2>
 
 						<p id="h35" className="leading-relaxed text-6xl font-bold">
 							0
@@ -139,18 +139,12 @@ const EN = () => {
 									0
 								</h3>
 								<h2 className="title-font text-4xl mb-2 mt-2 font-bold text-ns-red">Streak between</h2>
-								<div className="flex flex-wrap flex-row 2xl:flex-nowrap gap-3">
+								<div className="flex flex-wrap flex-row 2xl:flex-nowrap gap-3 space-x-5 justify-evenly">
 									<div className="flex flex-col items-center">
-										<h3 id="longestStreakS" className="leading-relaxed text-6xl font-bold">
+										<h3 id="longestStreakT" className="leading-relaxed text-6xl font-bold">
 											0
 										</h3>
-										<h2 className="leading-relaxed text-xl -mt-5 font-bold">Start</h2>
-									</div>
-									<div className="flex flex-col items-center">
-										<h3 id="longestStreakE" className="leading-relaxed text-6xl font-bold">
-											0
-										</h3>
-										<h2 className="leading-relaxed text-xl -mt-5 font-bold">End</h2>
+										<h2 className="leading-relaxed text-xl -mt-5 font-bold">Watching streak between</h2>
 									</div>
 								</div>
 							</div>
@@ -160,32 +154,33 @@ const EN = () => {
 
 				<div className="mx-auto sm:w-1/2 w-full flex p-5 flex-col space-y-3 text-white body-font bg-gray-700 rounded-2xl">
 					<div>
-						<div className="container mx-auto flex p-5 items-center justify-center flex-col">
-							<div className="w-full">
-								<h2 className="title-font text-4xl mb-2 text-ns-red font-bold">Your longest Netflix day</h2>
-								<h3 id="longestDay" className="leading-relaxed text-6xl font-bold">
-									0
-								</h3>
-								<h2 className="title-font text-4xl mb-2 mt-2 font-bold text-ns-red">Time spent</h2>
-								<div className="flex flex-col gap-10 justify-center md:flex-row">
-									<div className="flex flex-col">
-										<h3 id="longestDayM" className="leading-relaxed text-6xl font-bold">
-											0
-										</h3>
-										<h2 className="leading-relaxed text-xl -mt-5 font-bold">In minutes</h2>
-									</div>
-									<div className="flex flex-col">
-										<h3 id="longestDayT" className="leading-relaxed text-6xl font-bold">
-											0
-										</h3>
-										<h2 className="leading-relaxed text-xl -mt-5 font-bold">Title</h2>
-									</div>
-									<div className="flex flex-col">
-										<h3 id="longestDayH" className="leading-relaxed text-6xl font-bold">
-											0
-										</h3>
-										<h2 className="leading-relaxed text-xl -mt-5 font-bold">In Hours</h2>
-									</div>
+						<div>
+							<h2 className="title-font text-4xl mb-2 text-ns-red font-bold">Your longest Netflix day</h2>
+							<h3 id="longestDay" className="leading-relaxed text-6xl font-bold">
+								0
+							</h3>
+						</div>
+
+						<div>
+							<h2 className="title-font text-4xl my-2 font-bold text-ns-red">Time spent</h2>
+							<div className="flex flex-col gap-10 justify-evenly md:flex-row">
+								<div className="flex flex-col items-center">
+									<h3 id="longestDayM" className="leading-relaxed text-6xl font-bold">
+										0
+									</h3>
+									<h2 className="leading-relaxed text-xl -mt-5 font-bold">In minutes</h2>
+								</div>
+								<div className="flex flex-col items-center">
+									<h3 id="longestDayT" className="leading-relaxed text-6xl font-bold">
+										0
+									</h3>
+									<h2 className="leading-relaxed text-xl -mt-5 font-bold">Title</h2>
+								</div>
+								<div className="flex flex-col items-center">
+									<h3 id="longestDayH" className="leading-relaxed text-6xl font-bold">
+										0
+									</h3>
+									<h2 className="leading-relaxed text-xl -mt-5 font-bold">In Hours</h2>
 								</div>
 							</div>
 						</div>

@@ -128,8 +128,7 @@ export const createStatistics = (data: string[], dates: string[]) => {
 	new CountUp("longestDayH", longest_date_h, countOptions).start()
 
 	new CountUp("longestStreak", longestStreak + 1, countOptions).start()
-	document.querySelector("#longestStreakS").textContent = firstDate.toLocaleDateString("hu-HU")
-	document.querySelector("#longestStreakE").textContent = lastDate.toLocaleDateString("hu-HU")
+	document.querySelector("#longestStreakT").textContent = `${firstDate.toLocaleDateString("hu-HU")} - ${lastDate.toLocaleDateString("hu-HU")}`
 
 	// Show rows
 	document.querySelector(".row1").style.display = "flex"
