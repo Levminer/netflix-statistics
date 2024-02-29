@@ -58,7 +58,7 @@ const Footer = () => {
 						</div>
 					</div>
 					<div>
-						<h1 className="text-center text-2xl">Copyright © 2023 Lőrik Levente</h1>
+						<h1 className="text-center text-2xl">Copyright © {new Date().getFullYear()} Lőrik Levente</h1>
 					</div>
 				</div>
 			</footer>

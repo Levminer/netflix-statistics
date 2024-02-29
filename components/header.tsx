@@ -18,7 +18,7 @@ const Header = () => {
 						</Link>
 					</span>
 					<nav className="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
-						<Link href="/" className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/" ? "link" : ""}>
+						{/* <Link href="/" className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/" ? "link" : ""}>
 							Home
 						</Link>
 						<Link href="/en" className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/en" ? "link" : ""}>
@@ -26,7 +26,7 @@ const Header = () => {
 						</Link>
 						<Link href="/hu" className="hover:text-ns-red mr-5 text-2xl duration-200 ease-in" id={router.pathname == "/hu" ? "link" : ""}>
 							Magyar
-						</Link>
+						</Link> */}
 					</nav>
 					<a className="button mt-5 md:mt-0" target="_blank" rel="noopener" href="https://www.netflix.com/viewingactivity">
 						Your statistics
