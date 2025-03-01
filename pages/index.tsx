@@ -24,7 +24,7 @@ const EN = () => {
 						<div>
 							<h2 className="title-font text-4xl mb-4 font-bold text-ns-red">Instructions</h2>
 							<p className="leading-relaxed text-xl">1. First you need to download your statistics from your Netflix profile.</p>
-							<p className="leading-relaxed text-xl flex flex-row gap-3">
+							<span className="leading-relaxed text-xl flex md:flex-row flex-col gap-3">
 								<a
 									className="text-ns-red underline hover:text-white duration-200"
 									target="_blank"
@@ -41,7 +41,7 @@ const EN = () => {
 								>
 									Link if your logged in
 								</a>
-							</p>
+							</span>
 							<p className="leading-relaxed text-xl">2. Select the file you downloaded below.</p>
 							<p className="leading-relaxed text-xl">
 								3. If you did everything right just scroll down and you can already see the stats.
@@ -52,7 +52,7 @@ const EN = () => {
 					<div className="flex justify-center items-baseline flex-wrap mx-auto space-x-5 mt-10 bg-gray-600 p-5 rounded-xl">
 						<h2 className="text-4xl relative top-1 font-bold text-ns-red">Choose the file</h2>
 						<input type="file" className="hidden" id="file" onChange={loadFile} accept=".csv" />
-						<button type="button" id="input" onClick={start} className="button text-2xl">
+						<button type="button" id="input" onClick={start} className="button text-2xl mt-3 md:mt-0">
 							Choose a file
 						</button>
 					</div>

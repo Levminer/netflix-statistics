@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<Head>
-				<title>Levminer</title>
+				<title>Netflix Statistics</title>
 				<meta charSet="UTF-8" />
 				<meta name="description" content="Netflix Statistics - If you want to know how much time you spent in your life watching Netflix!" />
 				<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -22,4 +22,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp
-

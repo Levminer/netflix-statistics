@@ -7,13 +7,13 @@ const Header = () => {
 	return (
 		<>
 			<header className="sticky top-0 z-50 bg-gray-900 text-gray-50">
-				<div className="container mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row">
-					<span className="title-font text-ns-red mb-4 flex items-center font-bold md:mb-0">
-						<Link href="/">
+				<div className="container mx-auto flex flex-col flex-wrap items-center md:p-5 p-2 md:flex-row">
+					<span className="title-font text-ns-red mb-1 flex items-center font-bold md:mb-0">
+						<Link href="#">
 							<img src="img/img_32.ico" alt="Netflix Statistics Logo" />
 						</Link>
 
-						<Link href="/" className="ml-3 text-xl duration-200 ease-in hover:text-white">
+						<Link href="#" className="ml-3 text-xl">
 							Netflix Statistics
 						</Link>
 					</span>
@@ -28,7 +28,7 @@ const Header = () => {
 							Magyar
 						</Link> */}
 					</nav>
-					<a className="button mt-5 md:mt-0" target="_blank" rel="noopener" href="https://www.netflix.com/viewingactivity">
+					<a className="button mt-3 md:mt-0" target="_blank" rel="noopener" href="https://www.netflix.com/viewingactivity">
 						Your statistics
 					</a>
 				</div>
